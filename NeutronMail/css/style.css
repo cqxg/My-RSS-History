@@ -50,3 +50,74 @@
     padding: 13px 22px;
     text-decoration: none;
   }
+
+  /*------------------------------------------MAIN------------------------------- */
+main {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  /*-------------------------------------MASTHEAD--------------------------*/
+  .masthead {
+    width: 100%;
+    background-image: url('../img/background.jpg');
+  }
+  
+  .masthead-content {
+    min-height: 700px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 170px;
+  }
+  
+  .title-subtitle{
+    width: 100%;
+    margin: 0 auto 70px;
+  }
+  
+  .title-subtitle{
+    font-size: 60pt;
+    color: rgba(69, 69, 69, 255);
+    text-align: center
+  }
+  
+  .title {
+    margin: 0 auto;
+    font-size: 60pt;
+  }
+  .subtitle {
+    margin: 0 auto;
+    font-size: 30pt;
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .account {
+    height: 62px;
+    width: 250px;
+    border-radius: 36px;
+    border: none;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, #593587, #616bc1);
+    color: #ffffff;
+    padding: 13px 22px;
+    box-shadow: 0 0 2px 2px rgba(84, 83, 85, 0.5);
+    margin-right: 10px;
+  }
+  
+  .apple,
+  .android {
+    background-color: #593587;
+    border: none;
+    color: white;
+    margin: 0 10px;
+    padding: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
