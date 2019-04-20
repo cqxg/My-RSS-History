@@ -1,0 +1,52 @@
+
+/* ------------------------------- HEADER ------------------------------------ */
+.header {
+    max-width: 1200px;
+    margin: 75px auto 0;
+  }
+  
+  .upper-band {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .logo {
+   flex-grow: 4;
+   align-self: center;
+   justify-self: flex-start;
+  }
+  
+  .navigation {
+    flex-grow: 3;
+  }
+  
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .nav-list-item {
+    flex-grow: 1;
+  }
+  
+  .user {
+    flex-grow: 1;
+    align-self: center;
+  }
+  
+  .signup {
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, #593587, #616bc1);
+    color: #ffffff;
+    padding: 13px 22px;
+    text-decoration: none;
+  }
