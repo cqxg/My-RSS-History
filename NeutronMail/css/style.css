@@ -121,3 +121,66 @@ main {
     cursor: pointer;
     border-radius: 50%;
   }
+
+  /*------------------------------features---------------------------*/
+  
+.features {
+    min-height: 500px;
+    width: 100%;
+  }
+  
+  .features-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .swiss,
+  .double,
+  .anonym {
+    width: 360px;
+    height: 150px;
+    font-size: 30pt;
+    color: #666;
+    text-align: left;
+    margin: 0 45px;
+  }
+  
+  .swiss-ins,
+  .double-ins,
+  .anonym-ins {
+    font-size: 20pt;  
+    margin: 0 auto auto auto;
+  }
+  
+  .swiss-sub,
+  .double-sub,
+  .anonym-sub {
+    font-size: 10pt;
+  }
+  
+  .security {
+    margin: 0 auto;
+    max-width: 630px;
+    text-align: right;
+  }
+  
+  .security-title {
+    font-size: 50pt;
+  }
+  
+  .security-text {
+    font-size: 17pt;
+    color: #666;
+  }
+  
+  .more {
+    height: 62px;
+    width: 335px;
+    border: 1px solid #666;
+    border-radius: 36px;
+    background-color: white;
+    color: rgb(71, 70, 70);
+    padding: 10px 22px;
+    text-decoration: none;
+  }
