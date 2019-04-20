@@ -123,7 +123,7 @@ main {
   }
 
   /*------------------------------features---------------------------*/
-  
+
 .features {
     min-height: 500px;
     width: 100%;
@@ -183,4 +183,58 @@ main {
     color: rgb(71, 70, 70);
     padding: 10px 22px;
     text-decoration: none;
+  }
+
+  /*------------------------------market---------------------------*/
+.marketing {
+    min-height: 600px;
+    width: 100%;
+  }
+  
+  .sponsors {
+    width: 943px;
+    height: 66px;
+    background-repeat: no-repeat;
+    background-image: url('../img/download\ \(3\).png');
+  }
+  
+  .market-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .reviews-first {
+    font-size: 20pt;
+    color: #666;
+  }
+  
+  .reviews-second,
+  .reviews-third {
+    display: none;
+  }
+  
+  .devices {
+    font-family: "TitilliumWebReg";
+    width: 440px;
+    margin: 0 auto;
+  }
+  
+  .devices-title {
+    font-size: 36pt;
+  }
+  
+  .devices-text {
+    font-size: 16pt;
+    text-align: right;
+  }
+  
+  .devices-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .devices-apple,
+  .devices-android {
+    margin-left: 13px;
   }
