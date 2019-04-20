@@ -238,3 +238,70 @@ main {
   .devices-android {
     margin-left: 13px;
   }
+
+  /*-------------------------------------------------privacy------------------------------*/
+  
+.privacy {
+    min-height: 520px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .supp-title {
+    font-size: 36pt;
+    color: rgba(83, 83, 83, 255);
+    text-align: center;
+  }
+  
+  .supp-subtitle {
+    font-size: 30pt;
+    color: rgba(83, 83, 83, 255);
+    text-align: center;
+    margin: -45px auto;
+  }
+  .sup-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .paid-plan {
+    height: 58px;
+    width: 250px;
+    border-radius: 29px;
+    border: none;
+    cursor: pointer;
+    background-image: linear-gradient(to left, #593587, #616bc1);
+    color: #ffffff;
+    padding: 13px 24px;
+    text-align: center;
+    margin: 85px 24px;
+    box-shadow: 0.4em 0.4em 5px 2px rgba(122,122,122,0.5);
+  }
+  
+  .donate {
+    height: 58px;
+    width: 170px;
+    border-radius: 29px;
+    border: none;
+    cursor: pointer;
+    background-image: linear-gradient(to left, #616bc1, #0acaec);
+    color: #ffffff;
+    padding: 13px 24px;
+    margin: 85px 24px;
+    box-shadow: 0.4em 0.4em 5px 2px rgba(122,122,122,0.5);
+  }
+  
+  .vendors {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .vendors-title {
+    width: 100%;
+  }
+  
+  .vendors-images {
+    width: 974px;
+    height: 92px;
+    justify-self: flex-end;
+  }
