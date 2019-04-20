@@ -240,7 +240,7 @@ main {
   }
 
   /*-------------------------------------------------privacy------------------------------*/
-  
+
 .privacy {
     min-height: 520px;
     max-width: 1200px;
@@ -305,3 +305,71 @@ main {
     height: 92px;
     justify-self: flex-end;
   }
+
+  /*------------------------------------footer-------------------------*/
+
+.footer {
+  max-width: 1200px;
+  min-height: 370px;
+  background-color: #ffffff;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.footer-contacts {
+  flex-grow: 3;
+  justify-self: flex-start;
+}
+
+.footer-company,
+.footer-legal,
+.footer-neutronmail {
+  flex-grow: 1;
+  justify-self: flex-end;
+}
+
+.footer-title,
+.footer-contacts-title {
+  color: #666;
+  line-height: 23px;
+  text-align: end;
+  font-weight: bold;
+}
+
+.footer-contacts-text {
+  color: #666;
+  line-height: 23px;
+}
+
+.footer-contacts-link {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+.footer-list-item {
+  text-align: end;
+}
+
+.footer-list-link {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer-social-link {
+  color: #666;
+}
+
+.footer-copyright {
+  color: #666;
+  font-weight: 700;
+}
