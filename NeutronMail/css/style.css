@@ -1,4 +1,8 @@
 
+* {
+  font-family: 'Titillium Web';
+}
+
 /* ------------------------------- HEADER ------------------------------------ */
 .header {
     max-width: 1200px;
@@ -34,6 +38,11 @@
   .nav-list-item {
     flex-grow: 1;
   }
+
+  .nav-list-link {
+    text-decoration: none;
+    color: #666;
+  }
   
   .user {
     flex-grow: 1;
@@ -43,6 +52,11 @@
 
   .user::before{
     content: url(../img/LOGin.png);
+  }
+
+  .login-button {
+    text-decoration: none;
+    color: #666;
   }
 
   .signup {
@@ -91,15 +105,17 @@ main {
   .title {
     margin: 0 auto;
     font-size: 60pt;
-    font-weight: normal;
+    font-weight: bold;
+    color: rgb(139, 135, 135);
   }
   .subtitle {
     margin: 0 auto;
     font-size: 30pt;
+    color: rgb(139, 135, 135);
   }
 
   .where {
-    color:red;
+    color:rgb(245, 69, 69);
   }
   
   .buttons {
