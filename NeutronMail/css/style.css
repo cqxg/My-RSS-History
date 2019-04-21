@@ -38,8 +38,13 @@
   .user {
     flex-grow: 1;
     align-self: center;
+    margin-left: 50px;
   }
-  
+
+  .user::before{
+    content: url(../img/LOGin.png);
+  }
+
   .signup {
     height: 40px;
     border-radius: 20px;
@@ -49,6 +54,7 @@
     color: #ffffff;
     padding: 13px 22px;
     text-decoration: none;
+    margin-left: 20px;
   }
 
   /*------------------------------------------MAIN------------------------------- */
@@ -85,10 +91,15 @@ main {
   .title {
     margin: 0 auto;
     font-size: 60pt;
+    font-weight: normal;
   }
   .subtitle {
     margin: 0 auto;
     font-size: 30pt;
+  }
+
+  .where {
+    color:red;
   }
   
   .buttons {
@@ -134,6 +145,19 @@ main {
     flex-direction: row;
     justify-content: center;
   }
+
+  .swiss::before {
+    content: url(../img/shield.png);
+    margin-right: 10px;
+  }
+  
+  .double::before {
+    content: url(../img/key.png);
+  }
+
+  .anonym::before {
+    content: url(../img/lock.png);
+  }
   
   .swiss,
   .double,
@@ -143,7 +167,7 @@ main {
     font-size: 30pt;
     color: #666;
     text-align: left;
-    margin: 0 45px;
+    margin: 0 40px;
   }
   
   .swiss-ins,
@@ -167,6 +191,7 @@ main {
   
   .security-title {
     font-size: 50pt;
+    font-weight: normal;
   }
   
   .security-text {
@@ -189,6 +214,9 @@ main {
 .marketing {
     min-height: 600px;
     width: 100%;
+    background: url(../img/devices.png);
+    background-repeat: no-repeat;
+    background-position: right;
   }
   
   .sponsors {
@@ -221,6 +249,7 @@ main {
   
   .devices-title {
     font-size: 36pt;
+    font-weight: normal;
   }
   
   .devices-text {
