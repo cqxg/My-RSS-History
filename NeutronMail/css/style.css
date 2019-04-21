@@ -175,15 +175,17 @@ main {
 
   .swiss::before {
     content: url(../img/shield.png);
-    margin-right: 10px;
+    position: absolute;
   }
   
   .double::before {
-    content: url(../img/key.png);
+    content: url(../img/lock.png);
+    position: absolute;
   }
 
   .anonym::before {
-    content: url(../img/lock.png);
+    content: url(../img/key.png);
+    position: absolute;
   }
   
   .swiss,
@@ -191,17 +193,30 @@ main {
   .anonym {
     width: 360px;
     height: 150px;
-    font-size: 30pt;
+    font-size: 22pt;
     color: #666;
     text-align: left;
     margin: 0 40px;
+  }
+
+  .main-swiss {
+    margin-left: 60px;
+  }
+
+  .main-double {
+    margin-left: 60px;
+  }
+
+  .main-anonym {
+    margin-left: 60px;
   }
   
   .swiss-ins,
   .double-ins,
   .anonym-ins {
-    font-size: 20pt;  
-    margin: 0 auto auto auto;
+    font-size: 15pt;  
+    margin: -12px auto auto 60px;
+    text-align: left;
   }
   
   .swiss-sub,
@@ -214,16 +229,20 @@ main {
     margin: 0 auto;
     max-width: 630px;
     text-align: right;
+    min-height: 300px;
   }
   
   .security-title {
     font-size: 50pt;
     font-weight: normal;
+    margin-top: 130px;
+    color: rgb(66, 66, 66);
   }
   
   .security-text {
     font-size: 17pt;
     color: #666;
+    margin-top: -75px;
   }
   
   .more {
