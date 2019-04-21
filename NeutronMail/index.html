@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../NeutronMail/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 </head>
+
 <body>
 
     <header class="header">
@@ -40,13 +41,13 @@
             </nav>
             <div class="user">
                 <a class="login-button" href="#">Log In</a>
-                <button class="signup button">Sign Up</button>
+                <button class="signup-button">Sign Up</button>
             </div>
         </div>
         <div class="lower-band">
-            <a href="#" class="language">English  /</a>
-            <a href="#" class="language">French  /</a>
-            <a href="#" class="language">Italian  /</a>
+            <a href="#" class="language">English /</a>
+            <a href="#" class="language">French /</a>
+            <a href="#" class="language">Italian /</a>
             <a href="#" class="language">Polish</a>
         </div>
     </header>
@@ -57,11 +58,11 @@
             <div class="masthead-content">
                 <div class="icon-relative">
                     <div class="icon">
-                      <a href="https://www.google.by/" class="gicon"><img src="../NeutronMail/img/icon1.png"></a>
-                      <a href="https://www.facebook.com/" class="ficon"><img src="../NeutronMail/img/icon2.png"></a>
-                      <a href="https://twitter.com/" class="ticon"><img src="../NeutronMail/img/icon3.png"></a>
-                </div>   
-            </div>
+                        <a href="https://www.google.by/" class="gicon"><img src="../NeutronMail/img/icon1.png"></a>
+                        <a href="https://www.facebook.com/" class="ficon"><img src="../NeutronMail/img/icon2.png"></a>
+                        <a href="https://twitter.com/" class="ticon"><img src="../NeutronMail/img/icon3.png"></a>
+                    </div>
+                </div>
                 <div class="title-subtitle">
                     <h2 class="title">Secure Email Communication</h2>
                     <p class="subtitle">Based in <span class="where">Somewhere</span></p>
@@ -107,7 +108,8 @@
             <div class="security">
                 <h3 class="security-title">Physical Security</h3>
                 <p class="security-text">
-                    NeutronMail's infrastructure resides in Europe's <span class="where">most secure</span> datacenter, underneath 1000 meters of
+                    NeutronMail's infrastructure resides in Europe's <span class="where">most secure</span> datacenter,
+                    underneath 1000 meters of
                     solid rock.
                 </p>
                 <button class="more">Learn more about our security features</button>
@@ -118,28 +120,36 @@
             <div class="sponsors"></div>
             <div class="market-content">
                 <div class="reviews">
-                    <p class="reviews-first">
-                        A new email service being developed by a group <br>
-                        from MIT and CERN promises to bring secure,<br>
-                        encrypted email to the masses and keep sensitive <br>
-                        information away from prying eyes. <br>
-                        — Boston Herald
-                    </p>
-                    <p class="reviews-second">
-                        A new email service being developed by a group <br>
-                        from MIT and CERN promises to bring secure,<br>
-                        encrypted email to the masses and keep sensitive <br>
-                        information away from prying eyes. <br>
-                        — Boston Herald
-                    </p>
-                    <p class="reviews-third">
-                        A new email service being developed by a group <br>
-                        from MIT and CERN promises to bring secure,<br>
-                        encrypted email to the masses and keep sensitive <br>
-                        information away from prying eyes. <br>
-                        — Boston Herald
-                    </p>
+                    <div class="reviews-buttons" id="reviewsButtons">
+                        <input name="first" type="radio" value="first" checked='true'>
+                        <input name="second" type="radio" value="second">
+                        <input name="third" type="radio" value="third">
+                    </div>
+                    <div class="reviews-content" id="reviewsContent">
+                        <p class="first" id="review-first">
+                            A new email service being developed by a group <br>
+                            from MIT and CERN promises to bring secure,<br>
+                            encrypted email to the masses and keep sensitive <br>
+                            information away from prying eyes. <br>
+                            — Boston Herald 1
+                        </p>
+                        <p class="second" id="review-second">
+                            Contrary to popular belief, Lorem Ipsum is not<br>
+                            random text. It has roots in a piece of classical Latin<br>
+                            Lorem Ipsum comes from sections 1.10.32<br>
+                            The Extremes of Good and Evil) by Cicero, written in<br>
+                            — Lorem Ipsum
+                        </p>
+                        <p class="third" id="review-third">
+                            A new email service being developed by a group <br>
+                            Lorem Ipsum comes from sections 1.10.32,<br>
+                            encrypted email to the masses and keep sensitive <br>
+                            random text. It has roots in a piece of classical Latin<br>
+                            — Ipsum Lorem
+                        </p>
+                    </div>
                 </div>
+
                 <div class="devices">
                     <h2 class="devices-title">Any device, anywhere</h2>
                     <p class="devices-text">
@@ -180,7 +190,7 @@
         </section>
 
     </main>
-    
+
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-contacts">
@@ -242,4 +252,6 @@
             <p class="footer-copyright">© 2017 Neutron Technologies AG. All Rights Reserved.</p>
         </div>
     </footer>
-</body>    
+
+    <script src="./index.js"></script>
+</body>
