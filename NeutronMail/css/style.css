@@ -21,6 +21,17 @@
    align-self: center;
    justify-self: flex-start;
   }
+
+  .language {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .lower-band :hover {
+    text-decoration: underline;
+    color: rgb(83, 80, 80);
+    font-weight: bold;
+  }
   
   .navigation {
     flex-grow: 3;
@@ -317,9 +328,9 @@ main {
   /*-------------------------------------------------privacy------------------------------*/
 
 .privacy {
-    min-height: 520px;
+    min-height: 220px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 200px auto;
   }
   
   .supp-title {
@@ -367,25 +378,26 @@ main {
   }
   
   .vendors {
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 120px;
   }
-  
+
   .vendors-title {
     width: 100%;
+    text-align: right;
+    margin: -40px 80px auto auto;
+    color: #666;
   }
   
   .vendors-images {
     width: 974px;
     height: 92px;
-    justify-self: flex-end;
+    margin-left: 270px;
   }
 
   /*------------------------------------footer-------------------------*/
 
 .footer {
   max-width: 1200px;
-  min-height: 370px;
   background-color: #ffffff;
   font-size: 15px;
   margin: 0 auto;
