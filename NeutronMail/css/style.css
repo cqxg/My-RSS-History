@@ -101,7 +101,19 @@ main {
     margin: 0 auto;
     padding-top: 170px;
   }
-  
+
+  .icon-relative {
+    width: 100%;
+    position: relative;
+  }
+
+  .icon {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: -60px;
+  }
+   
   .title-subtitle{
     width: 100%;
     margin: 0 auto 70px;
