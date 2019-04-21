@@ -67,6 +67,13 @@
   
 .footer-social-link {
   color: #666;
+  text-decoration: none;
+}
+
+.footer-social-link:hover {
+  text-decoration: underline;
+  color: rgb(83, 80, 80);
+  font-weight: bold;
 }
   
 .footer-copyright {
