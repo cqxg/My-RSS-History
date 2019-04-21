@@ -113,6 +113,12 @@ main {
     position: absolute;
     right: -60px;
   }
+
+  .gicon,
+  .ficon,
+  .ticon {
+    margin-top: 10px; 
+  }
    
   .title-subtitle{
     width: 100%;
