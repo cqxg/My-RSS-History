@@ -120,6 +120,17 @@ main {
     box-shadow: 0 0 2px 2px rgba(84, 83, 85, 0.5);
     margin-right: 10px;
   }
+
+  .apple {
+    background-image: url(../img/appbut.png);
+    background-repeat: no-repeat;
+    background-position: 12px 8px;
+  }
+  .android {
+    background-image: url(../img/androidbut.png);
+    background-repeat: no-repeat;
+    background-position: 13px 9px;
+  }
   
   .apple,
   .android {
