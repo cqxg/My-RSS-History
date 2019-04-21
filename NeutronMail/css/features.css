@@ -1,0 +1,94 @@
+.features {
+  min-height: 500px;
+  width: 100%;
+}
+
+.features-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.swiss::before {
+  content: url(../img/shield.png);
+  position: absolute;
+}
+  
+.double::before {
+  content: url(../img/lock.png);
+  position: absolute;
+}
+
+.anonym::before {
+  content: url(../img/key.png);
+  position: absolute;
+}
+  
+.swiss,
+.double,
+.anonym {
+  width: 360px;
+  height: 150px;
+  font-size: 22pt;
+  color: #666;
+  text-align: left;
+  margin: 0 40px;
+}
+
+.main-swiss {
+  margin-left: 60px;
+}
+
+.main-double {
+  margin-left: 60px;
+}
+
+.main-anonym {
+  margin-left: 60px;
+}
+  
+.swiss-ins,
+.double-ins,
+.anonym-ins {
+  font-size: 15pt;  
+  margin: -12px auto auto 60px;
+  text-align: left;
+}
+  
+.swiss-sub,
+.double-sub,
+.anonym-sub {
+  font-size: 10pt;
+}
+  
+.security {
+  margin: 0 auto;
+  max-width: 630px;
+  text-align: right;
+  min-height: 300px;
+}
+  
+.security-title {
+  font-size: 50pt;
+  font-weight: normal;
+  margin-top: 130px;
+  color: rgb(66, 66, 66);
+}
+  
+.security-text {
+  font-size: 17pt;
+  color: #666;
+  margin-top: -75px;
+}
+  
+.more {
+  height: 62px;
+  width: 335px;
+  border: 1px solid #666;
+  border-radius: 36px;
+  background-color: white;
+  color: rgb(71, 70, 70);
+  padding: 10px 22px;
+  text-decoration: none;
+  margin-left: 467px;
+}
