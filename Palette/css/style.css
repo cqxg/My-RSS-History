@@ -1,0 +1,104 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+/*------------------------------------------- HEADER --------------------------- */
+.nav-wrapper {
+    background-color: #333; 
+}
+
+/*------------------------------------------- MAIN --------------------------- */
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    flex: 1
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.instruments {
+    height: 250px;
+    max-width: 210px;
+
+}
+
+.colors {
+    height: 250px;
+    max-width: 210px;
+
+}
+
+.field {
+    flex: 2;
+}
+
+.field-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 510px;
+}
+
+#drag {
+    height: 130px;
+    width: 130px;
+    background-color: #333;
+    margin: 10px 10px 10px 10px;
+}
+
+.circle {
+    border-radius: 65%;
+}
+
+.button {
+    height: 45px;
+    width: 200px;
+    cursor: pointer;
+    background-color: rgb(214, 207, 202);
+    color: rgb(46, 45, 45);
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: start;
+}
+
+
+#current {
+    background-color: #333;
+    margin: 10px 10px;
+}
+
+#prev {
+    background-color: #333;
+    margin: 10px 10px;
+}
+
+#red {
+    width: 60px;
+    background-color: red;
+    margin: 10px 10px;
+}
+
+#blue {
+    width: 60px;
+    background-color: blue;
+    margin: 10px 10px;
+}
+
+/*------------------------------------------- FOOTER --------------------------- */
+
+
+.footer {
+    display: flex;
+    min-height: 40px;
+    background-color: #333;
+    color: white;
+}
+
+.footext {
+    margin: 10px 10px;
+}
