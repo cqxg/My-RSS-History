@@ -1,5 +1,3 @@
-
-
 function App() {
   // -------------------- State -------------------------------
   const state = {
@@ -68,7 +66,13 @@ function App() {
     }
   }
 
+  function transformHandler(event) {
+    const element = event.target;
 
+    element.classList.toggle('circle');
+  }
+
+  // ----------------------------------------------------------
 
   // ------------------------ Picker --------------------------
   function setCurrColor() {
@@ -91,9 +95,6 @@ function App() {
 
   prev.addEventListener('click', swap);
   current.addEventListener('click', swap);
-
-
-
 
 }
 
