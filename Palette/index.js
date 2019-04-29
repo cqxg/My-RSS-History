@@ -1,9 +1,10 @@
 function App() {
   // -------------------- State -------------------------------
+
   const state = {
     currColor: 'red', // picked, red, blue
     prevColor: 'blue', // picked, red, blue
-    clickHandler: bucketHandler // bucket, picker, mover, transformer
+    clickHandler: pipetteHandler // bucket, picker, mover, transformer
   }
 
   const prevButton = document.getElementById('prev');
@@ -12,9 +13,9 @@ function App() {
   const red = document.getElementById('red');
   const instruments = document.querySelector('.instruments');
   const field = document.querySelector('.field');
-  // ----------------------------------------------------------
 
   // ------------------- Init ---------------------------------
+
   setPrevColor();
   setCurrColor();
 
@@ -62,9 +63,18 @@ function App() {
 
   function bucketHandler(event) {
     if (event.target.id === 'drag') {
-    event.target.style.backgroundColor = state.currColor;
+      event.target.style.backgroundColor = state.currColor;
     }
   }
+
+  function moveHandler(event) {
+    const element = event.target;
+    if (element.id === 'drag') {
+      element.addEventListener('mousedown', moveUtil);
+      element.addEventListener('dragstart', e => e.preventDefault());
+    }
+  }
+
 
   function transformHandler(event) {
     const element = event.target;
@@ -72,9 +82,8 @@ function App() {
     element.classList.toggle('circle');
   }
 
-  // ----------------------------------------------------------
-
   // ------------------------ Picker --------------------------
+
   function setCurrColor() {
     currButton.style.backgroundColor = state.currColor;
   }
@@ -95,7 +104,29 @@ function App() {
 
   prev.addEventListener('click', swap);
   current.addEventListener('click', swap);
+}
 
+// ---------------------------------------------------------
+
+function moveUtil(event) {
+  const element = event.target;
+  element.style.position = 'absolute';
+
+  moveAt(event);
+
+  document.body.appendChild(element);
+  document.addEventListener('mousemove', moveAt);
+  element.addEventListener('mouseup', removeListener);
+
+  function moveAt(event) {
+    element.style.left = event.pageX - element.offsetWidth / 2 + 'px';
+    element.style.top = event.pageY - element.offsetHeight / 2 + 'px';
+  }
+
+  function removeListener() {
+    document.removeEventListener('mousemove', moveAt);
+    element.removeEventListener('mouseup', removeListener);
+  }
 }
 
 
