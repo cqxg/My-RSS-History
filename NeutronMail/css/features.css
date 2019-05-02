@@ -11,38 +11,35 @@
 
 .swiss::before {
   content: url(../img/shield.png);
-  position: absolute;
 }
   
 .double::before {
   content: url(../img/lock.png);
-  position: absolute;
 }
 
 .anonym::before {
   content: url(../img/key.png);
-  position: absolute;
 }
   
+.swiss::before,
+.double::before,
+.anonym::before {
+  position: absolute;
+}
+
 .swiss,
 .double,
 .anonym {
   width: 360px;
   height: 150px;
-  font-size: 22pt;
+  font-size: 28px;
   color: #666;
   text-align: left;
   margin: 0 40px;
 }
 
-.main-swiss {
-  margin-left: 60px;
-}
-
-.main-double {
-  margin-left: 60px;
-}
-
+.main-swiss,
+.main-double,
 .main-anonym {
   margin-left: 60px;
 }
@@ -50,7 +47,7 @@
 .swiss-ins,
 .double-ins,
 .anonym-ins {
-  font-size: 15pt;  
+  font-size: 20px;  
   margin: -12px auto auto 60px;
   text-align: left;
 }
@@ -58,7 +55,7 @@
 .swiss-sub,
 .double-sub,
 .anonym-sub {
-  font-size: 10pt;
+  font-size: 14px;
 }
   
 .security {
@@ -69,14 +66,14 @@
 }
   
 .security-title {
-  font-size: 50pt;
+  font-size: 60px;
   font-weight: normal;
   margin-top: 130px;
   color: rgb(66, 66, 66);
 }
   
 .security-text {
-  font-size: 17pt;
+  font-size: 23px;
   color: #666;
   margin-top: -75px;
 }
