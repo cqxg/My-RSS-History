@@ -5,78 +5,78 @@
   margin: 0 auto;
 }
   
-.footer-top {
+.footer__top {
   display: flex;
   flex-direction: row;
   margin-bottom: 50px;
 }
   
-.footer-contacts {
+.footer__contacts {
   flex-grow: 3;
   justify-self: flex-start;
 }
   
-.footer-company,
-.footer-legal,
-.footer-neutronmail {
+.footer__company,
+.footer__legal,
+.footer__neutronmail {
   flex-grow: 1;
   justify-self: flex-end;
 }
   
-.footer-title,
-.footer-contacts-title {
+.footer__title,
+.footer__contacts-title {
   color: #666;
   line-height: 23px;
   text-align: end;
   font-weight: bold;
 }
   
-.footer-contacts-text {
+.footer__contacts-text {
   color: #666;
   line-height: 23px;
 }
   
-.contact-content {
+.contact__content {
   margin-top: 20px; 
 }
   
-.footer-list {
+.footer__list {
   list-style: none;
   padding: 0;
 }
 
-.footer-list-item {
+.footer__list_item {
   text-align: end;
 }
 
-.footer-list-item::after {
+.footer__list_item::after {
   content: '\2022';
   margin-left: 5px;
   top: 10px;
 }
 
-.footer-list-link {
+.footer__list_link {
   color: #666;
   text-decoration: none;
 }
   
-.footer-contacts-link {
+.footer__contacts_link {
   color: #666;
   text-decoration: none;
 }
   
-.footer-social-link {
+.footer__social_link {
   color: #666;
   text-decoration: none;
 }
 
-.footer-social-link:hover {
+.footer__social_link:hover {
   text-decoration: underline;
   color: rgb(83, 80, 80);
   font-weight: bold;
 }
   
-.footer-copyright {
+.footer__copyright {
   color: #666;
   font-weight: 700;
 }

@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.features-content {
+.features__content {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -65,14 +65,14 @@
   min-height: 300px;
 }
   
-.security-title {
+.security__title {
   font-size: 60px;
   font-weight: normal;
   margin-top: 130px;
   color: #666;
 }
   
-.security-text {
+.security__text {
   font-size: 23px;
   color: #666;
   margin-top: -75px;

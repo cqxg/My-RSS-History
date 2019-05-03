@@ -14,7 +14,7 @@
   margin-bottom: 15px;
 }
   
-.market-content {
+.market__content {
   max-width: 100%;
   margin: 0 auto;
 }
@@ -25,7 +25,7 @@
   justify-content: flex-start;
 }
 
-.reviews-buttons {
+.reviews__buttons {
   display: flex;
   flex-direction: column;
   margin-right: 25px;
@@ -50,27 +50,27 @@
   margin: 0 auto;
 }
   
-.devices-title {
+.devices__title {
   font-size: 35px;
   font-weight: 570;
   margin: auto auto 50px 120px;
 }
   
-.devices-text {
+.devices__text {
   font-size: 15px;
   color: #666;
   text-align: right;
   margin-top: -50px;
 }
   
-.devices-buttons {
+.devices__buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-top: 30px;
 }
   
-.devices-apple,
-.devices-android {
+.devices__apple,
+.devices__android {
   margin-left: 13px;
 }

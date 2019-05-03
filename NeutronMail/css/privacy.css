@@ -61,12 +61,12 @@
   margin-top: 90px;
 }
 
-.vendors-title {
+.vendors__title {
   margin-left: 1020px;
   color: #666;
 }
   
-.vendors-images {
+.vendors__images {
   width: 974px;
   height: 92px;
   margin-left: 370px;
