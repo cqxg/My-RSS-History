@@ -1,11 +1,11 @@
 body {
   font-size: 17px;
-  color: #000000;
-  background-color: #D3D3D3;
-  width: 1024px;
+  color: rgb(10, 10, 9);
+  background-color: rgb(207, 160, 6);
+  max-width: 1024px;
   padding: 10px;
   margin: 0 auto;
-  border: 5px dashed black;
+  border: 5px dashed rgb(10, 10, 9);
 }
 
 h1 {
@@ -18,6 +18,5 @@ h2 {
 hr {
   border: none; 
   background-color: red;
-  color: red; 
   height: 2px; 
 }
