@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Maven Pro', sans-serif;
   font-size: 0.75rem;
 }
 
@@ -23,16 +23,13 @@ h1 {
   content: "";
   width: 0;
   height: 0;
-  border-top: #323232 solid 1.75rem;
-  border-right: #ffffff solid 2.8125rem;
-  border-left: #ffffff solid 2.8125rem;
+  border-top: #323232 solid 2rem;
+  border-right: #ffffff solid 3rem;
+  border-left: #ffffff solid 3rem;
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-left: -2.8125rem;
-  -webkit-transform: scale(0.99999);
-  -ms-transform: scale(0.99999);
-  transform: scale(0.99999);
+  margin-left: -3rem;
 }
 
 .logo {
@@ -194,110 +191,6 @@ h1 {
   background-image: url(../assets/hex13.jpg);
 }
 
-@media all and (max-width: 419px){
-  .hex {
-    width: 140px;
-    height: 160px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: -33px;
-  }
-  .portfolio-container {
-    padding-top: 90px;
-    padding-bottom: 60px;
-  }
-  .hex-layer3:nth-of-type(2) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(3) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(4) {
-    display: none;
-  }
-  .hex-layer3:nth-of-type(5) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(6) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(8) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(9) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(11) {
-    display: inline;
-  }
-  .hex:last-of-type {
-    display: none;
-  }
-}
-
-@media all and (min-width: 420px) and (max-width: 619px){
-  .hex-layer3:nth-of-type(2) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(3) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(4) {
-    display: none;
-  }
-  .hex-layer3:nth-of-type(5) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(6) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(8) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(9) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(11) {
-    display: inline;
-  }
-  .hex:last-of-type {
-    display: none;
-  }
-}
-
-@media all and (min-width: 620px) and (max-width: 819px) {
-  .hex-layer3:nth-of-type(3) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(4) {
-    display: none;
-  }
-  .hex-layer3:nth-of-type(5) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(8) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(9) {
-    display: none;
-  }
-  .hex-layer3:nth-of-type(10) {
-    display: inline;
-  }
-}
-
-@media all and (min-width: 820px) and (max-width: 1020px){
-  .hex-layer3:nth-of-type(7) {
-    display: inline;
-  }
-  .hex-layer3:nth-of-type(9) {
-    display: none;
-  }
-  .hex:nth-of-type(12) {
-    margin-right: 200px;
-  }
-}
-
 .about {
   background: #2eb398;
   margin-top: 11px;
@@ -348,7 +241,6 @@ h1 {
 }
 
 .about-name {
-  font-family: 'Maven Pro', sans-serif;
   font-size: 1.875rem;
   color: #d7fcf5;
   padding: 0;
@@ -356,7 +248,6 @@ h1 {
 }
 
 .about-iam {
-  font-family: 'Maven Pro', sans-serif;
   font-size: 1.125rem;
   color: #20816d;
   margin: 0;
@@ -390,9 +281,9 @@ h1 {
 
 .about-socialnet:hover,
 .about-socialnet:active {
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .about-socialnet-fb {
@@ -441,14 +332,12 @@ h1 {
 }
 
 .getintouch-title {
-  font-family: 'Maven Pro', sans-serif;
   font-size: 1.875rem;
   color: #e0e0e0;
   margin: 0;
 }
 
 .getintouch-subtitle {
-  font-family: 'Maven Pro', sans-serif;
   font-size: 1.125rem;
   color: #bebebe;
   margin: 0;
@@ -460,12 +349,6 @@ h1 {
   margin-right: 1rem;
   vertical-align: top;
   font-size: 0.75rem;
-}
-
-.getintouch-left-column:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 .getintouch-contact-form {
@@ -556,6 +439,7 @@ textarea {
     margin: 0 auto;
     width: 100%;
   }
+
   .getintouch-contact-addres {
     margin-top: 1.5rem;
   }
@@ -571,4 +455,9 @@ textarea {
   max-width: 980px;
   margin: 0 auto;
   color: #454545;
+}
+
+.quisque {
+  font-weight: bolder;
+  color: white;
 }
