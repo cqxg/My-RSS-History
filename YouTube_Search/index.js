@@ -12,6 +12,7 @@ checked.click(function () {
         $(".add").text("Find a Video");
     }
 });
+
 //---------------------------------------- MAIN APP ---------------------------------//
 
 document.addEventListener('DOMContentLoaded', App);
@@ -33,6 +34,7 @@ function App() {
     const moreVideo = document.querySelector('.more');
     const textInput = document.querySelector('#textInput');
     const slider = document.querySelector('#scroll');
+    let isDown = false, startX, scrollLeft;
 
     textInput.addEventListener('keyup', enterHandler);
     moreVideo.addEventListener('click', moreHandler);
@@ -40,6 +42,53 @@ function App() {
     slider.addEventListener('mouseleave', handleLeave);
     slider.addEventListener('mouseup', handleUp);
     slider.addEventListener('mousemove', handleMove);
+
+    //---------------------------------------- INPUT FUNCTION ---------------------------------//
+
+    function enterHandler() {
+        if (event.keyCode == 13) {
+            const text = document.getElementById('textInput').value;
+            setTimeout(function () {
+                moreVideo.style.display = 'block';
+            }, 2000);
+            search(text);
+        }
+    }
+
+    function moreHandler() {
+        const text = document.getElementById('textInput').value;
+        search(text);
+    }
+
+    //------------------------------------------- SWIPE ---------------------------------------//
+
+    function handleDown(e) {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        moreHandler()
+    }
+
+    function handleLeave() {
+        isDown = false;
+        slider.classList.remove('active');
+    }
+
+    function handleUp() {
+        isDown = false;
+        slider.classList.remove('active');
+    }
+
+    function handleMove(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    }
+
+    //---------------------------------------- SEARCH FUNCTION ------------------------------------//
 
     function search(text) {
         const { baseLink, endpoint, key, type, part, maxResults, pageToken } = state;
@@ -65,55 +114,55 @@ function App() {
             .catch(err => console.log(err));
     }
 
-}
-//------------------------------ GENERATION FUNCTION -------------------------------//    
+    //------------------------------ GENERATION FUNCTION -------------------------------//    
 
-function generateSatics(items) {
-    const ID = [];
-    for (let a = 0; a < items.length; a++) {
-        const videoTest = items[a].id.videoId;
-        ID.push(videoTest);
-        state.stringID = ID.join(',');
-        console.log(state.stringID);
+    function generateSatics(items) {
+        const ID = [];
+        for (let a = 0; a < items.length; a++) {
+            const videoTest = items[a].id.videoId;
+            ID.push(videoTest);
+            state.stringID = ID.join(',');
+            console.log(state.stringID);
+        }
     }
-}
 
-function generateCards(items) {
+    function generateCards(items) {
 
 
-    const temp = document.querySelector('#card_template');
-    const wrapper = document.querySelector('.cards');
-    const fragment = document.createDocumentFragment();
+        const temp = document.querySelector('#card_template');
+        const wrapper = document.querySelector('.cards');
+        const fragment = document.createDocumentFragment();
 
-    for (let i = 0; i < items.length; i++) {
-        const newArticle = document.importNode(temp.content, true);
+        for (let i = 0; i < items.length; i++) {
+            const newArticle = document.importNode(temp.content, true);
 
-        const title = newArticle.querySelector('.title');
-        title.innerHTML = items[i].snippet.title;
+            const title = newArticle.querySelector('.title');
+            title.innerHTML = items[i].snippet.title;
 
-        const imgLink = items[i].snippet.thumbnails.high.url;
+            const imgLink = items[i].snippet.thumbnails.high.url;
 
-        const prevImage = newArticle.querySelector('#prevImage');
-        prevImage.src = imgLink;
+            const prevImage = newArticle.querySelector('#prevImage');
+            prevImage.src = imgLink;
 
-        const info = newArticle.querySelector('.info');
-        info.innerHTML = items[i].snippet.description; //or .split(' ').slice(0, 3);
+            const info = newArticle.querySelector('.info');
+            info.innerHTML = items[i].snippet.description; //or .split(' ').slice(0, 3);
 
-        const time = newArticle.querySelector('.time');
-        time.innerHTML = items[i].snippet.publishedAt.slice(0, 10);
+            const time = newArticle.querySelector('.time');
+            time.innerHTML = items[i].snippet.publishedAt.slice(0, 10);
 
-        const watchVideo = newArticle.querySelector('.btn');
-        watchVideo.href = `https://www.youtube.com/watch?v=${items[i].id}`;
+            const watchVideo = newArticle.querySelector('.btn');
+            watchVideo.href = `https://www.youtube.com/watch?v=${items[i].id}`;
 
-        const views = newArticle.querySelector('.views');
-        views.innerHTML = items[i].statistics.viewCount;
+            const views = newArticle.querySelector('.views');
+            views.innerHTML = items[i].statistics.viewCount;
 
-        const likes = newArticle.querySelector('.likes');
-        likes.innerHTML = items[i].statistics.likeCount;
+            const likes = newArticle.querySelector('.likes');
+            likes.innerHTML = items[i].statistics.likeCount;
 
-        fragment.appendChild(newArticle);
+            fragment.appendChild(newArticle);
 
+        }
+        wrapper.appendChild(fragment);
     }
-    wrapper.appendChild(fragment);
+
 }
-document.addEventListener('DOMContentLoaded', App);
