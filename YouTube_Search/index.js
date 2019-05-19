@@ -67,7 +67,6 @@ function App() {
         slider.classList.add('active');
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
-        moreHandler()
     }
 
     function handleLeave() {
@@ -78,6 +77,7 @@ function App() {
     function handleUp() {
         isDown = false;
         slider.classList.remove('active');
+        moreHandler()
     }
 
     function handleMove(e) {
