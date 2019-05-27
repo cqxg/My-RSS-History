@@ -57,6 +57,37 @@ function App() {
 
   });
 
+  document.addEventListener('keydown', event => {
+    if (event.keyCode == 49) {
+      setClickHandler(bucketHandler);
+      bucket.style.backgroundColor = 'white';
+      pipette.style.backgroundColor = 'gray';
+      mover.style.backgroundColor = 'gray';
+      transformer.style.backgroundColor = 'gray';
+    }
+    else if (event.keyCode == 50) {
+      setClickHandler(pipetteHandler);
+      pipette.style.backgroundColor = 'white';
+      bucket.style.backgroundColor = 'gray';
+      mover.style.backgroundColor = 'gray';
+      transformer.style.backgroundColor = 'gray';
+    }
+    else if (event.keyCode == 51) {
+      setClickHandler(moveHandler);
+      mover.style.backgroundColor = 'white';
+      bucket.style.backgroundColor = 'gray';
+      pipette.style.backgroundColor = 'gray';
+      transformer.style.backgroundColor = 'gray';
+    }
+    else if (event.keyCode == 52) {
+      setClickHandler(transformHandler);
+      transformer.style.backgroundColor = 'white';
+      bucket.style.backgroundColor = 'gray';
+      pipette.style.backgroundColor = 'gray';
+      mover.style.backgroundColor = 'gray';
+    }
+  });
+
 
   function setClickHandler(handler) {
     field.removeEventListener('click', state.clickHandler);
