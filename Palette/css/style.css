@@ -1,12 +1,11 @@
 * {
     font-family: 'Courier New', Courier, monospace;
 }
-/*------------------------------------------- HEADER --------------------------- */
+
 .nav-wrapper {
     background-color: #333; 
 }
 
-/*------------------------------------------- MAIN --------------------------- */
 .main-content {
     display: flex;
     flex-direction: row;
@@ -59,11 +58,15 @@
     height: 45px;
     width: 200px;
     cursor: pointer;
-    background-color: rgb(214, 207, 202);
-    color: rgb(46, 45, 45);
+    background-color: gray;
+    color: black;
     margin-top: 5px;
     font-weight: bold;
     text-align: start;
+}
+
+#bucket {
+    background-color: white;
 }
 
 
@@ -88,9 +91,6 @@
     background-color: blue;
     margin: 10px 10px;
 }
-
-/*------------------------------------------- FOOTER --------------------------- */
-
 
 .footer {
     display: flex;

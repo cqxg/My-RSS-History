@@ -1,10 +1,9 @@
 function App() {
-  // -------------------- State -------------------------------
 
   const state = {
-    currColor: 'red', // picked, red, blue
-    prevColor: 'blue', // picked, red, blue
-    clickHandler: pipetteHandler // bucket, picker, mover, transformer
+    currColor: 'red',
+    prevColor: 'blue',
+    clickHandler: bucketHandler
   }
 
   const prevButton = document.getElementById('prev');
@@ -13,8 +12,10 @@ function App() {
   const red = document.getElementById('red');
   const instruments = document.querySelector('.instruments');
   const field = document.querySelector('.field');
-
-  // ------------------- Init ---------------------------------
+  const bucket = document.querySelector('#bucket');
+  const pipette = document.querySelector('#pipette');
+  const mover = document.querySelector('#mover');
+  const transformer = document.querySelector('#transformer');
 
   setPrevColor();
   setCurrColor();
@@ -26,30 +27,42 @@ function App() {
     switch (button) {
       case 'bucket':
         setClickHandler(bucketHandler);
+        event.target.style.backgroundColor = 'white';
+        pipette.style.backgroundColor = 'gray';
+        mover.style.backgroundColor = 'gray';
+        transformer.style.backgroundColor = 'gray';
         break;
       case 'pipette':
         setClickHandler(pipetteHandler);
+        event.target.style.backgroundColor = 'white';
+        bucket.style.backgroundColor = 'gray';
+        mover.style.backgroundColor = 'gray';
+        transformer.style.backgroundColor = 'gray';
         break;
       case 'mover':
         setClickHandler(moveHandler);
+        event.target.style.backgroundColor = 'white';
+        bucket.style.backgroundColor = 'gray';
+        pipette.style.backgroundColor = 'gray';
+        transformer.style.backgroundColor = 'gray';
         break;
       case 'transformer':
         setClickHandler(transformHandler);
+        event.target.style.backgroundColor = 'white';
+        bucket.style.backgroundColor = 'gray';
+        pipette.style.backgroundColor = 'gray';
+        mover.style.backgroundColor = 'gray';
         break;
     }
 
   });
 
 
-  // ----------------------------------------------------------
-
   function setClickHandler(handler) {
     field.removeEventListener('click', state.clickHandler);
     state.clickHandler = handler;
     field.addEventListener('click', state.clickHandler);
   }
-
-  // -------------------- Menu --------------------------------
 
   function pipetteHandler(event) {
     const pickerdColor = event.target.style.backgroundColor;
@@ -75,14 +88,11 @@ function App() {
     }
   }
 
-
   function transformHandler(event) {
     const element = event.target;
 
     element.classList.toggle('circle');
   }
-
-  // ------------------------ Picker --------------------------
 
   function setCurrColor() {
     currButton.style.backgroundColor = state.currColor;
@@ -106,8 +116,6 @@ function App() {
   current.addEventListener('click', swap);
 }
 
-// ---------------------------------------------------------
-
 function moveUtil(event) {
   const element = event.target;
   element.style.position = 'absolute';
@@ -128,6 +136,5 @@ function moveUtil(event) {
     element.removeEventListener('mouseup', removeListener);
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', App);
