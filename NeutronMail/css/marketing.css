@@ -1,0 +1,76 @@
+.marketing {
+  min-height: 600px;
+  width: 100%;
+  background: url(../img/devices.png);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+  
+.sponsors {
+  width: 75%;
+  height: 66px;
+  background-repeat: no-repeat;
+  background-image: url('../img/download\ \(3\).png');
+  margin-bottom: 15px;
+}
+  
+.market__content {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.reviews__buttons {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+  padding-top: 10px;
+}
+
+.first,
+.second,
+.third {
+  font-size: 20px;
+  color: #666;
+}
+  
+.second,
+.third {
+  display: none;
+}
+  
+.devices {
+  font-family: "TitilliumWebReg";
+  width: 33%;
+  margin: 0 auto;
+}
+  
+.devices__title {
+  font-size: 35px;
+  font-weight: 570;
+  margin: auto auto 50px 120px;
+}
+  
+.devices__text {
+  font-size: 15px;
+  color: #666;
+  text-align: right;
+  margin-top: -50px;
+}
+  
+.devices__buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+}
+  
+.devices__apple,
+.devices__android {
+  margin-left: 13px;
+}

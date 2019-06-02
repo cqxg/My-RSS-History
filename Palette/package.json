@@ -1,0 +1,16 @@
+{
+  "name": "palette",
+  "version": "1.0.0",
+  "description": "palette",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^5.16.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "lint": "eslint index.js",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "author": "",
+  "license": "ISC"
+}

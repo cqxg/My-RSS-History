@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Palette</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="https://vk.com/emotionsmayvary">
+                            VK
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:cqxg@yandex.ru">
+                            email
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/cqxg">
+                            Git Hub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCxvjqMGahvYRbbSDWPrKfnQ?view_as=subscriber">
+                            YouTube
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="menu">
+            <div class="menu-content">
+                <div class="instruments">
+                    <a id="bucket" class="waves-effect waves-light btn-large bucket button">
+                        <img src="./img/icons/i1.png" alt="bucket">
+                        Paint bucket
+                    </a>
+                    <a id="pipette" class="waves-effect waves-light btn-large pipette button">
+                        <img src="./img/icons/i2.png" alt="pipette">
+                        Choose color
+                    </a>
+                    <a id="mover" class="waves-effect waves-light btn-large move button">
+                        <img src="./img/icons/i3.png" alt="move">
+                        Move
+                    </a>
+                    <a id="transformer" class="waves-effect waves-light btn-large transform button">
+                        <img src="./img/icons/i4.png" alt="transform">
+                        Transform
+                    </a>
+                </div>
+                <div class="colors">
+                    <a id="current" class="waves-effect waves-light btn-large">
+                        Curr colors
+                    </a>
+                    <a id="prev" class="waves-effect waves-light btn-large">
+                        Prev colors
+                    </a>
+                    <a id="red" class="waves-effect waves-light btn-small">
+                        Red
+                    </a>
+                    <a id="blue" class="waves-effect waves-light btn-small">
+                        Blue
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="field" class="field">
+            <div id="field-content" class="field-content">
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+                <div id="drag" draggable="true"></div>
+            </div>
+        </section>
+
+        <aside class="hint">
+            <p>
+                You can use the keyboard to select a tool!
+            </p>
+            <p>
+                use 1 to select "bucket"
+            </p>
+            <p>
+                use 2 to select "pipette"
+            </p>
+            <p>
+                use 3 to select "mover"
+            </p>
+            <p>
+                use 4 to select "transformer"
+            </p>
+        </aside>
+
+    </main>
+
+    <footer class="footer">
+        <span class="footext">© 2019 Copyright CQXG Media</span>
+    </footer>
+
+</body>
+
+<script src="./index.js"></script>
+
+</html>

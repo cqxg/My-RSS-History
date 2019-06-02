@@ -1,0 +1,14 @@
+* {
+  font-family: 'Titillium Web';
+}
+
+p {
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
