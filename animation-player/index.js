@@ -5,6 +5,7 @@ function App() {
     const framesWrapper = document.querySelector(".frames-wrapper");
     const frameTemplate = document.querySelector("#frame-template");
     const canvas = document.getElementById("myCanvas");
+    const stop = document.getElementById("stop");
     let myAnimation;
 
     const context = canvas.getContext("2d"),
@@ -102,6 +103,8 @@ function App() {
         framesWrapper.appendChild(clone);
     }
 
+    // ------------------------------ animation --------------------//
+
     // const play = document.getElementById('play');
 
     //  document.getElementById('play').addEventListener('click', () => {
@@ -126,6 +129,11 @@ function App() {
             }, 200);
         }
     });
+
+    stop.addEventListener('click', stopAnimate);
+    function stopAnimate() {
+        clearInterval(myAnimation);
+    };
 
     // play.addEventListener('click', animateCanvas);
     // function animateCanvas() {
