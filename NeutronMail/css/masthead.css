@@ -1,0 +1,105 @@
+.masthead {
+  width: 100%;
+  background-image: url('../img/background.jpg');
+}
+  
+.masthead__content {
+  min-height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 170px;
+}
+
+.icon-relative {
+  width: 100%;
+  position: relative;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -60px;
+}
+
+.gicon,
+.ficon,
+.ticon {
+  margin-top: 10px; 
+}
+   
+.title-subtitle{
+  width: 100%;
+  margin: 0 auto 70px;
+}
+  
+.title-subtitle{
+  font-size: 34px;
+  color: rgba(69, 69, 69, 255);
+  text-align: center
+}
+  
+.title {
+  margin: 0 auto;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgb(139, 135, 135);
+  width: 756px;
+}
+
+.subtitle {
+  margin: 0 auto;
+  font-size: 35px;
+  color: rgb(139, 135, 135);
+}
+
+.where {
+  color:rgb(245, 69, 69);
+}
+  
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.account {
+  height: 62px;
+  width: 250px;
+  border-radius: 36px;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, #593587, #616bc1);
+  color: #ffffff;
+  padding: 13px 22px;
+  box-shadow: 0 0 2px 2px rgba(84, 83, 85, 0.5);
+  margin-right: 10px;
+}
+
+.account:hover {
+  box-shadow: 0 0 20px rgba(75, 17, 80, 0.5);
+}
+
+.apple {
+  background-image: url(../img/appbut.png);
+  background-repeat: no-repeat;
+  background-position: 12px 8px;
+}
+
+.android {
+  background-image: url(../img/androidbut.png);
+  background-repeat: no-repeat;
+  background-position: 13px 9px;
+}
+  
+.apple,
+.android {
+  background-color: #593587;
+  border: none;
+  color: white;
+  margin: 0 10px;
+  padding: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+}
