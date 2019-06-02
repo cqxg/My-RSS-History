@@ -1,0 +1,66 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+    display: flex;
+}
+
+.menu {
+    border: 1px solid black;
+}
+
+#add,
+#delete {
+    margin: 5px 5px;
+    width: 100px;
+    height: 50px;
+}
+
+
+.frame-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.frame {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 5px auto;
+}
+
+.frame-image {
+    width: 100%;
+    height: 100% ;
+    background-color: white;
+}
+
+.active {
+    border: 1px solid red;
+}
+
+
+#myCanvas {
+    margin-left: 150px;
+    border: 1px solid black;
+}
+
+
+.button-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.button-copy {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.button-drag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
