@@ -10,13 +10,23 @@ main {
     border: 1px solid black;
 }
 
-#add,
-#delete {
+#add {
     margin: 5px 5px;
     width: 100px;
     height: 50px;
 }
 
+#play,
+#stop {
+    margin: 5px 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.play-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
 .frame-wrapper {
     display: flex;
@@ -28,6 +38,7 @@ main {
     width: 100px;
     height: 100px;
     margin: 5px auto;
+    border: 1px solid black;
 }
 
 .frame-image {
@@ -35,11 +46,6 @@ main {
     height: 100% ;
     background-color: white;
 }
-
-.active {
-    border: 1px solid red;
-}
-
 
 #myCanvas {
     margin-left: 150px;

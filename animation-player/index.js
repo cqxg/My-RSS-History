@@ -1,9 +1,11 @@
 function App() {
     const frames = [];
+    const framesTwo = [];
     const addFrames = document.getElementById("add");
     const framesWrapper = document.querySelector(".frames-wrapper");
     const frameTemplate = document.querySelector("#frame-template");
     const canvas = document.getElementById("myCanvas");
+    let myAnimation;
 
     const context = canvas.getContext("2d"),
         w = canvas.width,
@@ -44,9 +46,14 @@ function App() {
     //let dataURL = canvas.toDataURL();  <--- Vrode rabotaet
     //document.getElementById('img').href = dataURL; <--- ?
 
+    //--------------------------------    FRAMES  --------------------------------------------------------//
+
+
     addFrames.addEventListener('click', frameDraw);
 
     function frameDraw() {
+        const imageData = context.getImageData(0, 0, 800, 600);
+        framesTwo.push(imageData);
 
         dataURL = canvas.toDataURL();
         frames.push(dataURL);
@@ -55,6 +62,13 @@ function App() {
 
         const fragment = createFrame({ url: dataURL, id: frameId });
         framesWrapper.appendChild(fragment);
+
+        function clear() {
+            context.fillStyle = 'white'
+            context.fillRect(0, 0, 800, 600);
+            context.beginPath();
+        }
+        clear();
     };
 
     function createFrame(frameInfo) {
@@ -84,21 +98,47 @@ function App() {
     }
 
     function frameCopyHandler(e) {
-        let dupNode = e.target.cloneNode(true);
-        dupNode.nextSibling;
+        let clone = e.target.cloneNode(true);
+        framesWrapper.appendChild(clone);
     }
 
+    // const play = document.getElementById('play');
+
+    //  document.getElementById('play').addEventListener('click', () => {
+    //        for (let i = 0; i <= framesTwo.length; i++) {
+    //         context.putImageData(framesTwo[0], 0, 0)
+    //     }
+    //      console.log(framesTwo);
+    //   });
+
+    const drawing = (x) => {
+        context.clearRect(0, 0, 800, 600);
+        context.putImageData(framesTwo[x], 0, 0);
+    };
+
+    document.getElementById('play').addEventListener('click', () => {
+        i = 0;
+        if (framesTwo.length !== 0) {
+            myAnimation = setInterval(() => {
+                drawing(i);
+                if (i >= framesTwo.length - 1) i = 0;
+                else i += 1;
+            }, 200);
+        }
+    });
+
+    // play.addEventListener('click', animateCanvas);
+    // function animateCanvas() {
+    //     let image = new Image();
+    //     image.onload = function () {
+    //         context.drawImage(image, 0, 0);
+    //    };
+    //     for (let i = 0; i <= frames.length; i++) {
+    //         image.src = frames[i];
+    //    }
+    //  }
+
 }
-
-//function delete() {
-
-//};
-
-//function clear() {           <--------------- Zagotovo4ka
-//    canvas.fillStyle = 'white'
-//   canvas.fillRect(0, 0, canv.width, canv.height);
-//    canvas.beginPath();
-//}                
 
 document.addEventListener('DOMContentLoaded', App);
 
