@@ -4,9 +4,13 @@ function App() {
     const addFrames = document.getElementById("add");
     const framesWrapper = document.querySelector(".frames-wrapper");
     const frameTemplate = document.querySelector("#frame-template");
+    const speedValue = document.getElementById('speed');
     const canvas = document.getElementById("myCanvas");
     const stop = document.getElementById("stop");
     let myAnimation;
+    const state = {
+        speed: 1,
+    };
 
     const context = canvas.getContext("2d"),
         w = canvas.width,
@@ -121,12 +125,13 @@ function App() {
 
     document.getElementById('play').addEventListener('click', () => {
         i = 0;
+        state.speed = speedValue.valueAsNumber * 10;
         if (framesTwo.length !== 0) {
             myAnimation = setInterval(() => {
                 drawing(i);
                 if (i >= framesTwo.length - 1) i = 0;
                 else i += 1;
-            }, 200);
+            }, state.speed);
         }
     });
 
