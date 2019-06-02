@@ -1,0 +1,109 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.nav-wrapper {
+    background-color: #333; 
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu {
+    flex: 2;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.instruments {
+    height: 250px;
+    max-width: 210px;
+
+}
+
+.colors {
+    height: 250px;
+    max-width: 210px;
+}
+
+.field {
+    flex: 3;
+}
+
+.field-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 510px;
+}
+
+#drag {
+    height: 130px;
+    width: 130px;
+    background-color: #333;
+    margin: 10px 10px 10px 10px;
+}
+
+.circle {
+    border-radius: 65%;
+}
+
+.button {
+    height: 45px;
+    width: 200px;
+    cursor: pointer;
+    background-color: gray;
+    color: black;
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: start;
+}
+
+#bucket {
+    background-color: white;
+}
+
+
+#current {
+    background-color: #333;
+    margin: 10px 10px;
+}
+
+#prev {
+    background-color: #333;
+    margin: 10px 10px;
+}
+
+#red {
+    width: 60px;
+    background-color: red;
+    margin: 10px 10px;
+}
+
+#blue {
+    width: 60px;
+    background-color: blue;
+    margin: 10px 10px;
+}
+
+.hint {
+    flex-grow: 0.1;
+    font-size: 15px;
+    font-weight: bold; 
+}
+
+.footer {
+    display: flex;
+    min-height: 40px;
+    background-color: #333;
+    color: white;
+}
+
+.footext {
+    margin: 10px 10px;
+}

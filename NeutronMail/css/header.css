@@ -1,0 +1,82 @@
+.header {
+  max-width: 80%;
+  margin: 75px auto 0;
+}
+  
+.upper-band {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+  
+.logo {
+  flex-grow: 4;
+  align-self: center;
+  justify-self: flex-start;
+}
+
+.language {
+  text-decoration: none;
+  color: #666;
+}
+
+.lower-band :hover {
+  text-decoration: underline;
+  color: rgb(83, 80, 80);
+  font-weight: bold;
+}
+  
+.navigation {
+  flex-grow: 3;
+}
+  
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+  
+.nav-list__item {
+  flex-grow: 1;
+}
+
+.nav-list__link {
+  text-decoration: none;
+  color: #666;
+}
+  
+.user {
+  flex-grow: 1;
+  align-self: center;
+  margin-left: 50px;
+}
+
+.user::before{
+  content: url(../img/LOGin.png);
+}
+
+.login-button {
+  text-decoration: none;
+  color: rgb(56, 56, 56);
+  font-weight: bold;
+}
+
+.signup-button {
+  width: 97px;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, #593587, #7a84df);
+  color: #ffffff;
+  padding: 13px 22px;
+  margin-left: 20px;
+}
+
+.signup-button:hover {
+  box-shadow: 0 0 20px rgba(50, 17, 53, 0.5);
+}

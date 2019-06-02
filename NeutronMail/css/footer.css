@@ -1,0 +1,82 @@
+.footer {
+  max-width: 90%;
+  background-color: white;
+  font-size: 15px;
+  margin: 0 auto;
+}
+  
+.footer__top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+  
+.footer__contacts {
+  flex-grow: 3;
+  justify-self: flex-start;
+}
+  
+.footer__company,
+.footer__legal,
+.footer__neutronmail {
+  flex-grow: 1;
+  justify-self: flex-end;
+}
+  
+.footer__title,
+.footer__contacts-title {
+  color: #666;
+  line-height: 23px;
+  text-align: end;
+  font-weight: bold;
+}
+  
+.footer__contacts-text {
+  color: #666;
+  line-height: 23px;
+}
+  
+.contact__content {
+  margin-top: 20px; 
+}
+  
+.footer__list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__list_item {
+  text-align: end;
+}
+
+.footer__list_item::after {
+  content: '\2022';
+  margin-left: 5px;
+  top: 10px;
+}
+
+.footer__list_link {
+  color: #666;
+  text-decoration: none;
+}
+  
+.footer__contacts_link {
+  color: #666;
+  text-decoration: none;
+}
+  
+.footer__social_link {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer__social_link:hover {
+  text-decoration: underline;
+  color: rgb(83, 80, 80);
+  font-weight: bold;
+}
+  
+.footer__copyright {
+  color: #666;
+  font-weight: 700;
+}
