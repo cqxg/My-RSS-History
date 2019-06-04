@@ -10,6 +10,7 @@ function App() {
     let myAnimation;
     const state = {
         speed: 1,
+
     };
 
     const context = canvas.getContext("2d"),
@@ -45,11 +46,8 @@ function App() {
         context.stroke();
         context.closePath();
         draw = false;
-        //тут запись в фрейм --> 
     });
 
-    //let dataURL = canvas.toDataURL();  <--- Vrode rabotaet
-    //document.getElementById('img').href = dataURL; <--- ?
 
     //--------------------------------    FRAMES  --------------------------------------------------------//
 
@@ -109,15 +107,6 @@ function App() {
 
     // ------------------------------ animation --------------------//
 
-    // const play = document.getElementById('play');
-
-    //  document.getElementById('play').addEventListener('click', () => {
-    //        for (let i = 0; i <= framesTwo.length; i++) {
-    //         context.putImageData(framesTwo[0], 0, 0)
-    //     }
-    //      console.log(framesTwo);
-    //   });
-
     const drawing = (x) => {
         context.clearRect(0, 0, 800, 600);
         context.putImageData(framesTwo[x], 0, 0);
@@ -139,18 +128,6 @@ function App() {
     function stopAnimate() {
         clearInterval(myAnimation);
     };
-
-    // play.addEventListener('click', animateCanvas);
-    // function animateCanvas() {
-    //     let image = new Image();
-    //     image.onload = function () {
-    //         context.drawImage(image, 0, 0);
-    //    };
-    //     for (let i = 0; i <= frames.length; i++) {
-    //         image.src = frames[i];
-    //    }
-    //  }
-
 }
 
 document.addEventListener('DOMContentLoaded', App);
