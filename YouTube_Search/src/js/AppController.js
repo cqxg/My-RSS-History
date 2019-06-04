@@ -1,11 +1,14 @@
-import { search } from './AppModel';
-import { inputFunction } from './AppView';
+import AppModel from './AppModel';
+import AppView from './AppView';
+
 
 class AppController {
     constructor() {
         this.isDown = false;
         this.startX = '';
         this.scrollLeft = '';
+        this.view = new AppView();
+        this.model = new AppModel(this.view);
 
         this.textInput = document.querySelector('#textInput');
         this.moreVideo = document.querySelector('.more');
@@ -19,9 +22,6 @@ class AppController {
         this.slider.addEventListener('mousemove', e => this.handleMove(e));
     }
 
-    init() {
-        inputFunction();
-    }
 
     enterHandler(e) {
         if (e.keyCode === 13) {
@@ -29,13 +29,13 @@ class AppController {
             setTimeout(() => {
                 this.moreVideo.style.display = 'block';
             }, 2000);
-            search(text);
+            this.model.search(text);
         }
     }
 
     moreHandler(e) {
         const text = e.currentTarget.value;
-        search(text);
+        this.model.search(text);
     }
 
     handleDown(e) {
