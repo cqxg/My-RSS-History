@@ -9,11 +9,15 @@ class AppController {
         this.scrollLeft = '';
         this.view = new AppView();
         this.model = new AppModel(this.view);
+        this.slideIndex = 1;
 
         this.textInput = document.querySelector('#textInput');
         this.moreVideo = document.querySelector('.more');
         this.slider = document.querySelector('#scroll');
+        this.slides = document.querySelector('.card');
+        this.dots = document.querySelector(".slider-dots_item");
 
+        this.dots.addEventListener('click', slideIndex => this.showSlides(slideIndex));
         this.textInput.addEventListener('keyup', e => this.enterHandler(e));
         this.moreVideo.addEventListener('click', e => this.moreHandler(e));
         this.slider.addEventListener('mousedown', e => this.handleDown(e));
@@ -63,6 +67,38 @@ class AppController {
         const walk = (x - this.startX) * 2;
         e.currentTarget.scrollLeft = this.scrollLeft - walk;
     }
+    //------------------------------- Pagination ---------------------------------------//
+
+    // plusSlide() {
+    //     showSlides(slideIndex += 1);
+    // }
+
+    // minusSlide() {
+    //     showSlides(slideIndex -= 1);
+    // }
+
+    // currentSlide(n) {
+    //     showSlides(slideIndex = n);
+    // }
+
+    showSlides(n) {
+        let i;
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
 }
 
 export default AppController;
