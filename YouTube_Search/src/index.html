@@ -20,11 +20,11 @@
 
     <main>
         <div class="cards_wrapper" id="scroll">
-            <ul class="cards"></ul>
+            <div class="cards"></div>
         </div>
 
         <template id="card_template">
-            <li class="cards_item">
+            <div class="cards_item">
                 <div class="card">
                     <div class="card_image"><img id="prevImage" src=""></div>
                     <div class="card_content">
@@ -38,12 +38,17 @@
                         <p class="info"></p>
                     </div>
                 </div>
-            </li>
+            </div>
         </template>
 
-        <div class="slider-dots">
-            <span class="slider-dots_item"></span>
+        <div class="dots">
         </div>
+
+        <!-- <template class="slider-dots">
+            <li class="slider-dots_item">
+                <a class="link" href=""></a>
+            </li>
+        </template> -->
 
         <div class="button">
             <button class="more">MORE VIDEO</button>
