@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <title>Palette</title>
+    <title>Animation Player</title>
 </head>
 
 <body>
@@ -53,10 +53,15 @@
                     <i class="material-icons">stop</i>
                     Stop!
                 </button>
+                <label><input type="range" min="0" max="24" step="1" id="speed">FPS</label>
+
             </div>
 
-            <label><input type="range" min="0" max="24" step="1" id="speed">FPS</label>
-            
+            <section class="fullscreen">
+                <button id="full">
+                    Fullscreen!
+                </button>
+            </section>
         </section>
 
     </main>

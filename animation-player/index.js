@@ -7,6 +7,7 @@ function App() {
     const speedValue = document.getElementById('speed');
     const canvas = document.getElementById("myCanvas");
     const stop = document.getElementById("stop");
+    //const full = document.getElementById("full");
     let myAnimation;
     const state = {
         speed: 1,
@@ -16,6 +17,7 @@ function App() {
     const context = canvas.getContext("2d"),
         w = canvas.width,
         h = canvas.height;
+    context.fillStyle = 'white';
 
     const mouse = { x: 0, y: 0 };
     let draw = false;
@@ -48,30 +50,51 @@ function App() {
         draw = false;
     });
 
+    addFrames.addEventListener('click', e => frameDraw());
 
-    //--------------------------------    FRAMES  --------------------------------------------------------//
+    function frameDraw(x = 1000) {
 
+        console.log(x);
 
-    addFrames.addEventListener('click', frameDraw);
+        if (x === 1000) {
 
-    function frameDraw() {
-        const imageData = context.getImageData(0, 0, 800, 600);
-        framesTwo.push(imageData);
+            const imageData = context.getImageData(0, 0, 800, 600);
+            framesTwo.push(imageData);
 
-        dataURL = canvas.toDataURL();
-        frames.push(dataURL);
+            dataURL = canvas.toDataURL();
+            frames.push(dataURL);
 
-        const frameId = frames.length - 1;
+            const frameId = frames.length - 1;
 
-        const fragment = createFrame({ url: dataURL, id: frameId });
-        framesWrapper.appendChild(fragment);
+            const fragment = createFrame({ url: dataURL, id: frameId });
+            framesWrapper.appendChild(fragment);
 
-        function clear() {
-            context.fillStyle = 'white'
-            context.fillRect(0, 0, 800, 600);
-            context.beginPath();
+            function clear() {
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, 800, 600);
+            }
+            clear();
         }
-        clear();
+
+        else {
+            const imageData = framesTwo[x];
+            framesTwo.push(imageData);
+            const dataURL = frames[x];
+            frames.push(dataURL);
+
+            const frameId = frames.length - 1;
+
+            const fragment = createFrame({ url: dataURL, id: frameId });
+            framesWrapper.appendChild(fragment);
+
+            function clear() {
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, 800, 600);
+                console.log(x);
+            }
+            clear();
+        }
+
     };
 
     function createFrame(frameInfo) {
@@ -82,8 +105,27 @@ function App() {
         const newFrame = document.importNode(frameTemplate.content, true);
 
         const frameImage = newFrame.querySelector(".frame-image");
+        const frame = newFrame.querySelector(".frame");
+        frame.id = `${id}`;
         frameImage.src = url;
-        frameImage.id = `frame-${id}`;
+        frameImage.id = `${id}`;
+
+
+        function frameDeleteHandler(e) {
+
+            let elem = e.target;
+            let num = (elem.classList.contains('button-delete')) ? elem.parentElement.id : elem.parentElement.parentElement.id;
+
+            framesTwo.splice(num, 1);
+            frames.splice(num, 1);
+            frame.remove(e.target);
+        }
+
+        function frameCopyHandler(e) {
+            let elem = e.target;
+            let num = (elem.classList.contains('button-copy')) ? elem.parentElement.id : elem.parentElement.parentElement.id;
+            frameDraw(num);
+        }
 
         const frameDelete = newFrame.querySelector(".button-delete");
         frameDelete.addEventListener('click', frameDeleteHandler);
@@ -95,25 +137,13 @@ function App() {
         return fragment;
     }
 
-    function frameDeleteHandler(e) {
-        const frame = document.querySelector(".frame");
-        frame.remove(e.target);
-    }
-
-    function frameCopyHandler(e) {
-        let clone = e.target.cloneNode(true);
-        framesWrapper.appendChild(clone);
-    }
-
-    // ------------------------------ animation --------------------//
-
     const drawing = (x) => {
         context.clearRect(0, 0, 800, 600);
         context.putImageData(framesTwo[x], 0, 0);
     };
 
     document.getElementById('play').addEventListener('click', () => {
-        i = 0;
+        let i = 0;
         state.speed = speedValue.valueAsNumber * 10;
         if (framesTwo.length !== 0) {
             myAnimation = setInterval(() => {
@@ -122,12 +152,27 @@ function App() {
                 else i += 1;
             }, state.speed);
         }
+        document.getElementById('play').disabled = true;
     });
 
     stop.addEventListener('click', stopAnimate);
     function stopAnimate() {
         clearInterval(myAnimation);
+        document.getElementById('play').disabled = false;
     };
+
+
+    document.getElementById('full').addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            canvas.requestFullscreen()
+                .catch((err) => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+        } else {
+            document.exitFullscreen();
+        }
+    });
+
 }
 
 document.addEventListener('DOMContentLoaded', App);
