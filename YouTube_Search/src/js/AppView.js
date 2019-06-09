@@ -23,8 +23,6 @@ export default class AppView {
                 l += 1;
             }
 
-            console.log(cardID);
-
             const title = newArticle.querySelector('.title');
             title.innerHTML = items[i].snippet.title;
 
@@ -62,8 +60,6 @@ export default class AppView {
             point.href = `#${i + this.idCounter.count}`;
             point.style.setProperty('num', i);
             this.dotsWrapper.appendChild(point);
-            console.log(1);
-
         }
         this.idCounter.count += 3;
     }

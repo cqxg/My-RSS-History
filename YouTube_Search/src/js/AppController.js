@@ -66,8 +66,6 @@ class AppController {
         const walk = (x - this.startX) * 2;
         e.currentTarget.scrollLeft = this.scrollLeft - walk;
     }
-    //------------------------------- Pagination ---------------------------------------//
-
 }
 
 export default AppController;
