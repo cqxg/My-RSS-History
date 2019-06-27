@@ -20,5 +20,31 @@ export default class AppController {
       }
     });
 
-    const controller = new AppController();
-    document.addEventListener('DOMContentLoaded', controller.init);
+    this.framsControl.addEventListener('click', (e) => {
+      this.done(e);
+      if (this.do === 'add') {
+        this.do = this.was;
+        this.view.frameDraw();
+      }
+      if (this.do === 'save') {
+        this.do = this.was;
+        this.view.saveFrame();
+
+
+        this.view.model.framesWrapper.addEventListener('click', (e) => {
+          const elem = (e.target.nodeName === 'IMG') ? e.target.parentElement : e.target;
+          const num = elem.id;
+          if (num !== null) this.view.goToTheFram(num);
+        });
+      }
+
+      done(e) {
+        const elem = (e.target.classList.contains('material-icons') || e.target.nodeName === 'IMG') ? e.target.parentElement.className : e.target.className;
+        this.was = (this.do !== 'add' || this.do !== 'save' || this.do !== 'play' || this.do !== 'stop' || this.do !== 'full' || this.do !== 'clone' || this.do !== 'turn') ? this.do : this.was;
+        this.do = (this.dones.indexOf(elem) != -1) ? elem : 'pen';
+      }
+    }
+    });
+
+  const controller = new AppController();
+  document.addEventListener('DOMContentLoaded', controller.init);

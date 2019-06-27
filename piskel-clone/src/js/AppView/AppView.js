@@ -45,4 +45,66 @@ export default class AppView {
     this.backgroundColor.style.backgroundColor = this.backroundcolor;
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
+
+
+  frameDraw(x = 1000) {
+    const imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height);
+    const dataURL = this.canvas.toDataURL();
+    const date = this.model.frameDraw(x, imageData, this.backroundcolor, dataURL);
+    this.createFrame(date);
+    this.clear();
+  }
+
+  createFrame(obj = {}) {
+    const newFrame = document.importNode(this.model.frameTemplate.content, true);
+    const frameImage = newFrame.querySelector('.frame-image');
+    const frame = newFrame.querySelector('.frame');
+
+    frame.id = `${obj.id}`;
+    frameImage.src = this.model.frames[obj.id].data;
+    frame.style.backgroundColor = this.model.frames[obj.id].background;
+
+    const fragment = document.createDocumentFragment();
+    const frameDelete = newFrame.querySelector('.button-delete');
+    frameDelete.addEventListener('click', e => this.frameDeleteHandler(e));
+    const frameCopy = newFrame.querySelector('.button-copy');
+    frameCopy.addEventListener('click', e => this.frameCopyHandler(e));
+    fragment.appendChild(newFrame);
+    this.model.framesWrapper.appendChild(fragment);
+    this.active_num = this.model.framesTwo.length - 1;
+  }
+
+  refactior() {
+    this.model.framesWrapper.innerHTML = '';
+    this.model.frames.forEach((elem, index) => {
+      this.createFrame({ url: elem, id: index });
+    });
+  };
+
+  frameDeleteHandler(e) {
+    const elem = e.target;
+    this.model.frameDeleteHandler(elem);
+    this.refactior();
+  };
+
+  frameCopyHandler(e) {
+    const elem = e.target;
+    const num = this.model.frameCopyHandler(elem);
+    this.frameDraw(num);
+  };
+
+  saveFrame() {
+    if (this.model.framesTwo.length !== 0) {
+      const imageData = this.context.getImageData(0, 0, this.canvas.width, this.canvas.height);
+      const dataURL = this.canvas.toDataURL();
+      this.model.saveFrame(this.active_num, imageData, this.backroundcolor, dataURL);
+      this.refactior();
+    }
+  };
+
+  goToTheFram(num) {
+    this.active_num = num;
+    this.drawing(num);
+  };
+
 };
