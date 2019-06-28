@@ -129,6 +129,16 @@ export default class AppView {
   }
   //--------------------
 
+    // paint line
+    upLine(e) {
+      this.paint = false;
+      const xCanvas = e.pageX - this.canvas_cont.offsetLeft;
+      const yCanvas = e.pageY - this.canvas_cont.offsetTop;
+      this.context.lineTo(xCanvas, yCanvas);
+      this.context.lineWidth = this.width;
+      this.context.stroke();
+    }
+
   // paint circle
   paintCircle(status) {
     const radiusX = (this.x2 - this.x1) * 0.5;
