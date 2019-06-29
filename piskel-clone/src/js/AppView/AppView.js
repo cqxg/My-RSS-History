@@ -308,4 +308,77 @@ export default class AppView {
       document.exitFullscreen();
     }
   }
+
+  turn() {
+    this.clear();
+    const img = new Image();
+    img.src = this.model.frames[this.active_num].data;
+    this.context.save();
+    this.context.translate(this.context.canvas.width / 2, this.context.canvas.height / 2);
+    this.context.rotate(Math.PI / 2);
+    this.context.drawImage(img, -(img.width / 2), -(img.height / 2));
+    this.context.restore();
+
+    this.context.resetTransform();
+    this.saveFrame();
+  }
+
+  clone() {
+    this.model.cloneFram(this.active_num);
+    this.refactior();
+  }
+
+  mirror() {
+    this.clear();
+    const img = new Image();
+    img.src = this.model.frames[this.active_num].data;
+    this.context.drawImage(img, img.width, 0);
+    this.context.save();
+    this.context.translate(img.width, 0);
+    this.context.scale(-1, 1);
+    this.context.drawImage(img, 0, 0);
+    this.context.restore();
+    this.context.setTransform(1, 0, 0, 1, 0, 0);
+
+    this.context.resetTransform();
+    this.saveFrame();
+  }
+
+  //   centering() {
+  //     this.clear();
+
+  //     const imageData = this.context.getImageData(0, 0, 700, 500).data;
+  //     this.context.getImageData(0, 0, 1, 1).data;
+  //     console.dir(imageData[0]);
+
+  //     this.context.resetTransform();
+  //     this.saveFrame();
+  //   }
+
+  showCoordinates(e) {
+    document.querySelector('.coordinates').innerHTML = '';
+    document.querySelector('.coordinates').innerHTML = `<p class="coordinates_data">${(e.pageX - this.canvas_cont.offsetLeft) / 64}/${(e.pageX - this.canvas_cont.offsetLeft) / 64}</p>`;
+  }
+
+  downCanvas(e) {
+    this.paint = true;
+    this.img.img = new Image();
+    const dataURL = this.canvas.toDataURL();
+    this.img.img.src = dataURL;
+    this.img.posX = e.pageX - this.canvas_cont.offsetLeft;
+    this.img.posY = e.pageY - this.canvas_cont.offsetTop;
+  }
+
+  moveCanvas(e) {
+    if (this.paint === true) {
+      this.clear();
+      const dx = e.pageX - this.canvas_cont.offsetLeft - this.img.posX;
+      const dy = e.pageY - this.canvas_cont.offsetTop - this.img.posY;
+      this.context.drawImage(this.img.img, dx, dy);
+    }
+  }
+
+  upCanvas() {
+    this.paint = false;
+  }
 }
