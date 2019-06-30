@@ -1,10 +1,12 @@
 import AppView from '../AppView/AppView';
+import rgb2hex from './functions';
+import hexToRgb from './functions1';
 import '../../css/style.css';
 
 export default class AppController {
   constructor() {
     this.view = new AppView();
-    this.dones = ['turn', 'clone', 'mirror', 'centering', 'bucket-full', 'bucket', 'pipette', 'pen', 'line', 'eraser', 'rectngle', 'stroke-rectngle', 'circle', 'stroke-circle', 'play', 'stop', 'full', 'save', 'add', 'move'];
+    this.dones = ['turn', 'clone', 'mirror', 'bucket-full', 'bucket', 'lighten', 'blackout', 'pipette', 'pen', 'line', 'eraser', 'rectngle', 'stroke-rectngle', 'circle', 'stroke-circle', 'play', 'stop', 'full', 'save', 'add', 'move', 'save_ses', 'addLayer'];
     this.do = 'pen';
     this.was = 'pen';
     this.tools = document.querySelector('.tools');
@@ -13,6 +15,16 @@ export default class AppController {
     this.transformControl = document.querySelector('.transform-tool');
     document.getElementById('get_color').addEventListener('change', e => this.view.changeColor(e));
     document.getElementById('speed').addEventListener('change', e => this.view.changeSpeed(e));
+
+    document.querySelector('.addLayer').addEventListener('click', () => this.view.addNewLayer());
+    document.querySelector('.layer-delete').addEventListener('click', () => this.view.deleteNewLayer());
+    document.querySelector('.layerUp').addEventListener('click', () => this.view.layerMoving('up'));
+    document.querySelector('.layerDown').addEventListener('click', () => this.view.layerMoving('down'));
+
+    document.querySelector('.saveImg').addEventListener('click', () => this.view.saveCanvasAsImageFile());
+    document.querySelector('.saveAnimation').addEventListener('click', () => this.view.saveAnimation());
+
+    document.addEventListener('keypress', event => this.setTool(event));
 
     this.tools.addEventListener('click', (e) => {
       this.done(e);
@@ -60,16 +72,17 @@ export default class AppController {
       if (this.do === 'turn') this.view.turn();
       if (this.do === 'clone') this.view.clone();
       if (this.do === 'mirror') this.view.mirror();
-      if (this.do === 'centering') this.view.centering();
       this.do = this.was;
     });
 
     this.view.canvas.addEventListener('click', (e) => {
-      if (this.do === 'bucket-full') this.view.bucketFull(this.hexToRgb(this.view.color));
-      if (this.do === 'bucket') this.view.bucket(e, this.hexToRgb(this.view.color));
+      if (this.do === 'bucket-full') this.view.bucketFull(hexToRgb(this.view.color));
+      if (this.do === 'bucket') this.view.bucket(e, hexToRgb(this.view.color));
       if (this.do === 'pipette') {
-        document.getElementById('get_color').value = this.rgb2hex(this.view.selectColor(e));
+        document.getElementById('get_color').value = rgb2hex(this.view.selectColor(e));
       }
+      if (this.do === 'lighten') this.view.transparency(e);
+      if (this.do === 'blackout') this.view.transparency(e, 'blackout');
     });
 
     this.view.canvas.addEventListener('mousemove', (e) => {
@@ -109,34 +122,48 @@ export default class AppController {
     });
 
     this.view.model.framesWrapper.addEventListener('click', (e) => {
-      const elem = (e.target.nodeName === 'IMG') ? e.target.parentElement : e.target;
-      const num = elem.id;
-      if (num !== null) this.view.goToTheFram(num);
+      if (e.target.nodeName === 'BUTTON' || e.target.nodeName === 'I') {
+        e.stopPropagation();
+      } else {
+        const num = e.target.id;
+        this.view.goToTheFram(num);
+      }
+    });
+
+    this.view.model.layerWrapper.addEventListener('click', (e) => {
+      const num = e.target.id;
+      if (num !== null) this.view.goToTheLayer(num);
     });
   }
 
   done(e) {
     const elem = (e.target.classList.contains('material-icons') || e.target.nodeName === 'IMG') ? e.target.parentElement.className : e.target.className;
     this.was = (this.do !== 'add' || this.do !== 'save' || this.do !== 'play' || this.do !== 'stop' || this.do !== 'full' || this.do !== 'clone' || this.do !== 'turn') ? this.do : this.was;
-    this.do = (this.dones.indexOf(elem) != -1) ? elem : 'pen';
+    this.do = (this.dones.indexOf(elem) !== -1) ? elem : 'pen';
   }
 
-  componentToHex(c) {
-    const hex = c.toString(16);
-    return hex.length == 1 ? `0${  hex}` : hex;
-  }
-
-  rgb2hex(rgba = [0, 0, 0, 0]) {
-    return `#${this.componentToHex(rgba[0])}${this.componentToHex(rgba[1])}${this.componentToHex(rgba[2])}`;
-  }
-
-  hexToRgb(hex) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16),
-    } : null;
+  setTool(event) {
+    if (event.keyCode === 49) {
+      this.do = 'pen';
+    } else if (event.keyCode === 50) {
+      this.do = 'line';
+    } else if (event.keyCode === 51) {
+      this.do = 'eraser';
+    } else if (event.keyCode === 52) {
+      this.do = 'bucket-full';
+    } else if (event.keyCode === 53) {
+      this.do = 'bucket';
+    } else if (event.keyCode === 54) {
+      this.do = 'pipette';
+    } else if (event.keyCode === 55) {
+      this.do = 'blackout';
+    } else if (event.keyCode === 56) {
+      this.do = 'lighten';
+    } else if (event.keyCode === 57) {
+      this.do = 'rectngle';
+    } else if (event.keyCode === 58) {
+      this.do = 'stroke-rectngle';
+    }
   }
 }
 

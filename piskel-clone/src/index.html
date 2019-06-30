@@ -22,54 +22,72 @@
                     <span>Stroke width</span>
                     <label><input type="range" min="10" max="70" step="20" value="10" id="width"></label>
                 </div>
-                <button class="pen">
+                <button title="Pen. You can select it by press '1'" class="pen">
                     <img src="https://img.icons8.com/ios/24/000000/edit.png">
                 </button>
-                <button class="line">
+                <button title="Line. You can select it by press '2'" class="line">
                     <img src="https://img.icons8.com/metro/26/000000/line.png">
                 </button>
-                <button class="eraser">
+                <button title="Eraser. You can select it by press '3'"  class="eraser">
                     <img src="https://img.icons8.com/wired/24/000000/eraser.png">
                 </button>
-                <button class="bucket-full">
+                <button title="Background Fill. You can select it by press '4'"  class="bucket-full">
                     <img src="https://img.icons8.com/ios/24/000000/roller-brush-filled.png">
                 </button>
-                <button class="bucket">
+                <button title="Bucket. You can select it by press '5'"  class="bucket">
                     <i class="material-icons">format_color_fill</i>
                 </button>
-                <button class="pipette">
+                <button title="Pipette. You can select it by press '6'"  class="pipette">
                     <i class="material-icons">colorize</i>
+                </button>
+                <button title="Blackout. You can select it by press '7'"  class="blackout">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/black-and-white.png">
+                </button>
+                <button title="Lighten. You can select it by press '8'"  class="lighten">
+                    <img src="https://img.icons8.com/ios/24/000000/black-and-white.png">
+                </button>
+                <button title="Rectngle. You can select it by press '9'"  class="rectngle">
+                    <img src="https://img.icons8.com/material/24/000000/rectangle.png">
+                </button>
+                <button title="Stroke-rectngle." class="stroke-rectngle">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/rectangle-stroked.png">
+                </button>
+                <button title="Circle." class="circle">
+                    <img src="https://img.icons8.com/material-outlined/24/000000/filled-circle.png">
+                </button>
+                <button title="Stroke-circle. You can select it by press 'w'"  class="stroke-circle">
+                    <img src="https://img.icons8.com/material/24/000000/circled.png">
+                </button>
+            </div>
+
+            <div class="transform-tool">
+                <button class="turn">
+                    <i class="material-icons">replay</i>
+                </button>
+                <button class="clone">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/pull-request.png">
+                </button>
+                <button class="mirror">
+                    <img src="https://img.icons8.com/metro/26/000000/mirror.png">
                 </button>
                 <button class="move">
                     <i class="material-icons">open_with</i>
-                </button>
-                <button class="rectngle">
-                    <img src="https://img.icons8.com/material/24/000000/rectangle.png">
-                </button>
-                <button class="stroke-rectngle">
-                    <img src="https://img.icons8.com/material-rounded/24/000000/rectangle-stroked.png">
-                </button>
-                <button class="circle">
-                    <img src="https://img.icons8.com/material-outlined/24/000000/filled-circle.png">
-                </button>
-                <button class="stroke-circle">
-                    <img src="https://img.icons8.com/material/24/000000/circled.png">
                 </button>
             </div>
 
             <div class="colors">
                 <span>Color selection</span>
-                <input type="color" id="get_color" name="get_color" value='#0080ff'>
+                <input type="color" id="get_color" name="get_color" value='#000000'>
             </div>
         </section>
 
         <section class="frames">
             <div class="button-wrapper">
-                <button class="add">
+                <button title="Add new Frame" class="add">
                     <i class="material-icons">note_add</i>
                     Add
                 </button>
-                <button class="save">
+                <button title="Save your changes in frames" class="save">
                     <i class="material-icons">save</i>
                     Save
                 </button>
@@ -79,7 +97,6 @@
 
             <template id="frame-template">
                 <div class="frame">
-                    <img class="frame-image"></img>
                     <button class="button-delete">
                         <i class="material-icons">delete</i>
                     </button>
@@ -92,55 +109,76 @@
 
         <section class="canvas">
             <div id="myColor"></div>
-            <canvas id="myGrid" width="644" height="454"></canvas> 
+            <canvas id="myGrid" width="644" height="454"></canvas>
             <canvas id="myCanvas" width="700" height="500"></canvas>
         </section>
 
         <section class="preview">
             <div id="prevCanvas">
-                <img id="prevCanvas_img"></img>
             </div>
 
             <div class="play-wrapper">
-                <button class="play">
+                <button title="Play Animation" class="play">
                     <i class="material-icons">play_circle_outline</i>
                     Play!
                 </button>
-                <button class="stop">
+                <button title="Stop Animation" class="stop">
                     <i class="material-icons">stop</i>
                     Stop!
                 </button>
-                <button class="full">
+                <button title="Fullscreen" class="full">
                     <i class="material-icons">filter_none</i>
                     Full
                 </button>
+                <div class="save-wrapper">
+                    <button title="Save image" class="saveImg">
+                        <i class="material-icons">save</i>
+                        Save Image
+                    </button>
+                    <button title="Save your animation" class="saveAnimation">
+                        <i class="material-icons">save</i>
+                        Save Animation
+                    </button>
+                </div>
             </div>
             <label><input type="range" min="1" max="24" step="1" id="speed"> FPS</label>
 
-            <div class="transform-tool">
-                <!-- <span class="transform-tool_desc">Transform-tool</span> -->
-                <button class="turn">
-                    <i class="material-icons">replay</i>
-                </button>
-                <button class="clone">
-                    <img src="https://img.icons8.com/material-rounded/24/000000/pull-request.png">
-                </button>
-                <button class="mirror">
-                    <img src="https://img.icons8.com/metro/26/000000/mirror.png">
-                </button>
-                <button class="centering">
-                    <img src="https://img.icons8.com/material-outlined/24/000000/center-diretion-2.png">
-                </button>
-            </div>
-            <div class="coordinates"></div>
+            <section class="layers-tool">
+                <div class="layers_button-wrapper">
+                    <button title="Add new layer" class="addLayer">
+                        Add new layer
+                    </button>
+                    <button title="Delete layer" class="layer-delete">
+                        <i class="material-icons">delete</i>
+                    </button>
+                    <div class="layer-move-wrapper">
+                        <button title="layer up" class="layerUp">
+                            <img src="https://img.icons8.com/ios/16/000000/sort-up-filled.png">
+                        </button>
+                        <button title="layer down" class="layerDown">
+                            <img src="https://img.icons8.com/ios/16/000000/sort-down-filled.png">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lyers-wrapper"></div>
+
+                <template id="layer-template">
+                    <div class="layer"></div>
+                </template>
+
+            </section>
+
         </section>
 
     </main>
 
     <footer>
-
+        <div class="coordinates"></div>
     </footer>
 
 </body>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </html>
