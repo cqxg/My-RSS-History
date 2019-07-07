@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Animation Player</title>
+</head>
+
+<body>
+
+    <main>
+
+        <section class="menu">
+            <button id="add">
+                <i class="material-icons">note_add</i>
+                Add new frame!
+            </button>
+
+            <div class="frames-wrapper"></div>
+
+            <template id="frame-template">
+                <div class="frame">
+                    <img class="frame-image"></img>
+                    <button class="button-delete">
+                        <i class="material-icons">delete</i>
+                    </button>
+                    <button class="button-copy">
+                        <i class="material-icons">file_copy</i>
+                    </button>
+                    <button class="button-drag">
+                        <i class="material-icons">drag_indicator</i>
+                    </button>
+                </div>
+            </template>
+
+        </section>
+
+        <section class="canvas">
+            <canvas id="myCanvas" width="800" height="600"></canvas>
+        </section>
+
+        <section class="play">
+            <div class="play-wrapper">
+                <button id="play">
+                    <i class="material-icons">replay</i>
+                    Play!
+                </button>
+                <button id="stop">
+                    <i class="material-icons">stop</i>
+                    Stop!
+                </button>
+                <label><input type="range" min="0" max="24" step="1" id="speed">FPS</label>
+
+            </div>
+
+            <section class="fullscreen">
+                <button id="full">
+                    Fullscreen!
+                </button>
+            </section>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
