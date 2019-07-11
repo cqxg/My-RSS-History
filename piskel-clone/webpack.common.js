@@ -31,10 +31,10 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new CopyPlugin([
-            { from: './src/js/gif.js-master/dist/gif.worker.js', to: "" },
-            { from: './src/js/gif.js-master/dist/gif.worker.js.map', to: "" },
-            { from: './src/js/gif.js-master/dist/gif.js.map', to: "" },
-            { from: './src/js/gif.js-master/dist/gif.js', to: "" },
+            { from: './node_modules/gif.js-master/dist/gif.worker.js', to: "" },
+            { from: './node_modules/gif.js-master/dist/gif.worker.js.map', to: "" },
+            { from: './node_modules/gif.js-master/dist/gif.js.map', to: "" },
+            { from: './node_modules/gif.js-master/dist/gif.js', to: "" },
         ]),
         new HtmlWebpackPlugin({
 

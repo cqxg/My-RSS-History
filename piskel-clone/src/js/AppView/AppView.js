@@ -1,5 +1,5 @@
 import AppModel from '../AppModel/AppModel';
-import GIF from '../gif.js-master/dist/gif';
+import GIF from '../../../node_modules/gif.js-master/dist/gif';
 import download from './functionDownlode';
 import saveImage from './functionSaveImg';
 
