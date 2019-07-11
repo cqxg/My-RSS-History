@@ -1,7 +1,7 @@
 import AppModel from '../AppModel/AppModel';
 import GIF from '../../../node_modules/gif.js-master/dist/gif';
-import download from './functionDownlode';
-import saveImage from './functionSaveImg';
+import download from './downloadAnimation';
+import saveImage from './saveImg';
 
 export default class AppView {
   constructor() {
@@ -129,15 +129,15 @@ export default class AppView {
   }
   //--------------------
 
-    // paint line
-    upLine(e) {
-      this.paint = false;
-      const xCanvas = e.pageX - this.canvas_cont.offsetLeft;
-      const yCanvas = e.pageY - this.canvas_cont.offsetTop;
-      this.context.lineTo(xCanvas, yCanvas);
-      this.context.lineWidth = this.width;
-      this.context.stroke();
-    }
+  // paint line
+  upLine(e) {
+    this.paint = false;
+    const xCanvas = e.pageX - this.canvas_cont.offsetLeft;
+    const yCanvas = e.pageY - this.canvas_cont.offsetTop;
+    this.context.lineTo(xCanvas, yCanvas);
+    this.context.lineWidth = this.width;
+    this.context.stroke();
+  }
 
   // paint circle
   paintCircle(status) {
@@ -489,13 +489,13 @@ export default class AppView {
     saveImage(image);
   }
 
-  PrevAnimation(){
+  PrevAnimation() {
     const dataURL = this.canvas.toDataURL();
     this.model.addEndFrams(dataURL);
     this.model.addEndFrams(dataURL);
-    for (let i = 0; i < this.model.frames.length; i += 1){
+    for (let i = 0; i < this.model.frames.length; i += 1) {
       let len = this.model.frames[i].data.length;
-      for (let j = 0; j < len; j += 1){
+      for (let j = 0; j < len; j += 1) {
         this.context.fillStyle = this.model.frames[i].background;
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         const newImg = new Image();
@@ -511,9 +511,9 @@ export default class AppView {
   saveAnimation() {
     this.PrevAnimation();
     const gif = new GIF({
-       workers: 2,
-       quality: 1,
-       width: 644,
+      workers: 2,
+      quality: 1,
+      width: 644,
       height: 454,
     });
     for (let i = 0; i < this.model.framsAnim.length; i += 1) {

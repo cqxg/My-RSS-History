@@ -1,6 +1,6 @@
 import AppView from '../AppView/AppView';
-import rgb2hex from './functions';
-import hexToRgb from './functions1';
+import rgb2hex from './componentToHex';
+import hexToRgb from './hexToRgb';
 import '../../css/style.css';
 
 export default class AppController {
@@ -30,7 +30,6 @@ export default class AppController {
       this.done(e);
       if (this.do === 'pen' || this.do === 'eraser' || this.do === 'line' || this.do === 'circle' || this.do === 'stroke-circle' || this.do === 'stroke-rectngle' || this.do === 'rectngle') {
         document.getElementById('range-wrapper').style.display = 'block';
-        // eslint-disable-next-line no-shadow
         document.getElementById('width').addEventListener('change', e => this.view.changeWidth(e));
       } else {
         document.getElementById('range-wrapper').style.display = 'none';
@@ -39,50 +38,82 @@ export default class AppController {
 
     this.framsControl.addEventListener('click', (e) => {
       this.done(e);
-      if (this.do === 'add') {
-        this.do = this.was;
-        this.view.frameDraw();
-      }
-      if (this.do === 'save') {
-        this.do = this.was;
-        this.view.saveFrame();
+      switch (this.do) {
+        case 'add':
+          this.do = this.was;
+          this.view.frameDraw();
+          break;
+
+        case 'save':
+          this.do = this.was;
+          this.view.saveFrame();
+          break;
       }
     });
 
     this.player.addEventListener('click', (e) => {
       this.done(e);
-      if (this.do === 'play') {
-        this.view.playFrams();
-        this.do = this.was;
-        document.querySelector('.play').disabled = true;
-      }
-      if (this.do === 'stop') {
-        document.querySelector('.play').disabled = false;
-        this.do = this.was;
-        this.view.stopPlay();
-      }
-      if (this.do === 'full') {
-        this.do = this.was;
-        this.view.fullScreen();
+      switch (this.do) {
+        case 'play':
+          this.view.playFrams();
+          this.do = this.was;
+          document.querySelector('.play').disabled = true;
+          break;
+
+        case 'stop':
+          document.querySelector('.play').disabled = false;
+          this.do = this.was;
+          this.view.stopPlay();
+          break;
+
+        case 'full':
+          this.do = this.was;
+          this.view.fullScreen();
+          break;
       }
     });
 
     this.transformControl.addEventListener('click', (e) => {
       this.done(e);
-      if (this.do === 'turn') this.view.turn();
-      if (this.do === 'clone') this.view.clone();
-      if (this.do === 'mirror') this.view.mirror();
+      switch (this.do) {
+        case 'turn':
+          this.view.turn();
+          break;
+
+        case 'clone':
+          this.view.clone();
+          break;
+
+        case 'mirror':
+          this.view.mirror();
+          break;
+      }
       this.do = this.was;
     });
 
     this.view.canvas.addEventListener('click', (e) => {
-      if (this.do === 'bucket-full') this.view.bucketFull(hexToRgb(this.view.color));
-      if (this.do === 'bucket') this.view.bucket(e, hexToRgb(this.view.color));
-      if (this.do === 'pipette') {
-        document.getElementById('get_color').value = rgb2hex(this.view.selectColor(e));
+      switch (this.do) {
+        case 'bucket-full':
+          this.view.bucketFull(hexToRgb(this.view.color));
+          break;
+
+        case 'bucket':
+          this.view.bucket(e, hexToRgb(this.view.color));
+          break;
+
+        case 'pipette':
+          document.getElementById('get_color').value = rgb2hex(this.view.selectColor(e));
+          break;
+
+        case 'lighten':
+          this.view.transparency(e);
+          break;
+
+        case 'blackout':
+          this.view.transparency(e, 'blackout');
+          break;
+
       }
-      if (this.do === 'lighten') this.view.transparency(e);
-      if (this.do === 'blackout') this.view.transparency(e, 'blackout');
     });
 
     this.view.canvas.addEventListener('mousemove', (e) => {
@@ -94,31 +125,109 @@ export default class AppController {
     });
 
     this.view.canvas.addEventListener('mousedown', (e) => {
-      if (this.do === 'pen') this.view.down(e);
-      if (this.do === 'line') this.view.down(e);
-      if (this.do === 'eraser') this.view.down(e);
-      if (this.do === 'circle' || this.do === 'stroke-circle') this.view.downCircle(e);
-      if (this.do === 'rectngle' || this.do === 'stroke-rectngle') this.view.downRectangle(e);
-      if (this.do === 'move') this.view.downCanvas(e);
+      switch (this.do) {
+        case 'pen':
+          this.view.down(e);
+          break;
+
+        case 'line':
+          this.view.down(e);
+          break;
+
+        case 'eraser':
+          this.view.down(e);
+          break;
+
+        case 'circle':
+          this.view.downCircle(e);
+          break;
+
+        case 'stroke-circle':
+          this.view.downCircle(e);
+          break;
+
+        case 'rectngle':
+          this.view.downRectangle(e);
+          break;
+
+        case 'stroke-rectngle':
+          this.view.downRectangle(e);
+          break;
+
+        case 'move':
+          this.view.downCanvas(e);
+          break;
+
+      }
     });
 
     this.view.canvas.addEventListener('mousemove', (e) => {
-      if (this.do === 'pen') this.view.move(e);
-      if (this.do === 'eraser') this.view.move(e, 'eraser');
-      if (this.do === 'circle' || this.do === 'stroke-circle') this.view.moveCircle(e);
-      if (this.do === 'rectngle' || this.do === 'stroke-rectngle') this.view.moveRectangle(e);
-      if (this.do === 'move') this.view.moveCanvas(e);
+      switch (this.do) {
+        case 'pen':
+          this.view.move(e);
+          break;
+
+        case 'eraser':
+          this.view.move(e, 'eraser');
+          break;
+
+        case 'circle':
+          this.view.moveCircle(e);
+          break;
+
+        case 'stroke-circle':
+          this.view.moveCircle(e);
+          break;
+
+        case 'rectngle':
+          this.view.moveRectangle(e);
+          break;
+
+        case 'stroke-rectngle':
+          this.view.moveRectangle(e);
+          break;
+
+        case 'move':
+          this.view.moveCanvas(e);
+          break;
+      }
     });
 
     this.view.canvas.addEventListener('mouseup', (e) => {
-      if (this.do === 'pen') this.view.up();
-      if (this.do === 'line') this.view.upLine(e);
-      if (this.do === 'eraser') this.view.up();
-      if (this.do === 'circle') this.view.upCircle();
-      if (this.do === 'stroke-circle') this.view.upCircle('stroke');
-      if (this.do === 'rectngle') this.view.upRectangle();
-      if (this.do === 'stroke-rectngle') this.view.upRectangle('stroke');
-      if (this.do === 'move') this.view.upCanvas();
+      switch (this.do) {
+        case 'pen':
+          this.view.up();
+          break;
+
+        case 'line':
+          this.view.upLine(e);
+          break;
+
+        case 'eraser':
+          this.view.up();
+          break;
+
+        case 'circle':
+          this.view.upCircle();
+          break;
+
+        case 'stroke-circle':
+          this.view.upCircle('stroke');
+          break;
+
+        case 'rectngle':
+          this.view.upRectangle();
+          break;
+
+        case 'stroke-rectngle':
+          this.view.upRectangle('stroke');
+          break;
+
+        case 'move':
+          this.view.upCanvas();
+          break;
+
+      }
     });
 
     this.view.model.framesWrapper.addEventListener('click', (e) => {
@@ -143,26 +252,42 @@ export default class AppController {
   }
 
   setTool(event) {
-    if (event.keyCode === 49) {
-      this.do = 'pen';
-    } else if (event.keyCode === 50) {
-      this.do = 'line';
-    } else if (event.keyCode === 51) {
-      this.do = 'eraser';
-    } else if (event.keyCode === 52) {
-      this.do = 'bucket-full';
-    } else if (event.keyCode === 53) {
-      this.do = 'bucket';
-    } else if (event.keyCode === 54) {
-      this.do = 'pipette';
-    } else if (event.keyCode === 55) {
-      this.do = 'blackout';
-    } else if (event.keyCode === 56) {
-      this.do = 'lighten';
-    } else if (event.keyCode === 57) {
-      this.do = 'rectngle';
-    } else if (event.keyCode === 58) {
-      this.do = 'stroke-rectngle';
+    switch (event.keyCode) {
+      case 49:
+          this.do = 'pen';
+          break;
+
+      case 50:
+          this.do = 'line';
+          break;
+
+      case 51:
+          this.do = 'eraser';
+          break;
+
+      case 52:
+          this.do = 'bucket-full';
+          break;
+
+      case 53:
+          this.do = 'bucket';
+          break;
+
+      case 54:
+          this.do = 'pipette';
+          break;
+
+      case 55:
+          this.do = 'blackout';
+          break;
+
+      case 56:
+          this.do = 'lighten';
+          break;
+
+      case 57:
+          this.do = 'rectngle';
+          break;
     }
   }
 }
