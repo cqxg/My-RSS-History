@@ -1,7 +1,7 @@
 import AppModel from '../AppModel/AppModel';
-import GIF from '../../../node_modules/gif.js-master/dist/gif';
-import download from './downloadAnimation';
-import saveImage from './saveImg';
+import saveCanvasAsImageFile from './saveImg';
+import Grid from './grid';
+import drawLayer from './drawLayer';
 
 export default class AppView {
   constructor() {
@@ -19,7 +19,7 @@ export default class AppView {
     this.active_num = null;
     this.next_layer = null;
     this.active_layer = null;
-    this.img = {
+    this.Img = {
       img: null,
       posX: 0,
       poxY: 0,
@@ -38,36 +38,8 @@ export default class AppView {
       w: 0,
       h: 0,
     };
-    this.grid = {
-      cellsNumberX: 64,
-      cellsNumberY: 64,
-      lineX: this.canvas.width / 64,
-      lineY: this.canvas.height / 64,
-    };
-    this.Grid();
+    Grid(this.gridCanvas, this.canvas.width, this.canvas.height);
     this.model = new AppModel();
-  }
-
-  // grid for cnavas
-  Grid() {
-    const contx = this.gridCanvas.getContext('2d');
-    contx.strokeStyle = '#808080';
-    let buf = 0;
-    for (let i = 0; i <= this.grid.cellsNumberX; i += 1) {
-      contx.beginPath();
-      contx.moveTo(buf, 0);
-      contx.lineTo(buf, this.canvas.height);
-      contx.stroke();
-      buf += this.grid.lineX;
-    }
-    buf = 0;
-    for (let j = 0; j <= this.grid.cellsNumberY; j += 1) {
-      contx.beginPath();
-      contx.moveTo(0, buf);
-      contx.lineTo(this.canvas.width, buf);
-      contx.stroke();
-      buf += this.grid.lineY;
-    }
   }
 
   // store width
@@ -196,7 +168,7 @@ export default class AppView {
     this.createFrame(date);
     this.clear();
     document.querySelector('.lyers-wrapper').innerHTML = '';
-    this.drawLayer(0);
+    drawLayer(0);
     this.active_num = this.model.framesTwo.length - 1;
   }
 
@@ -274,24 +246,17 @@ export default class AppView {
       this.clear();
       this.refactior();
       this.next_layer = this.model.getNexNum(this.active_num);
-      this.drawLayer(this.next_layer);
+      drawLayer(this.next_layer);
       this.active_layer = this.next_layer;
       this.active_layer = this.model.getNexNum(this.active_num);
     }
-  }
-
-  drawLayer(num) {
-    const newLayer = document.importNode(this.model.layerTemplate.content, true);
-    const layer = newLayer.querySelector('.layer');
-    layer.id = num;
-    document.querySelector('.lyers-wrapper').appendChild(newLayer);
   }
 
   refactiorLayers(num) {
     document.querySelector('.lyers-wrapper').innerHTML = '';
     const n = this.model.getNexNum(num);
     for (let i = 0; i <= n; i += 1) {
-      this.drawLayer(i);
+      drawLayer(i);
       this.active_layer = i;
     }
   }
@@ -453,19 +418,19 @@ export default class AppView {
   // move
   downCanvas(e) {
     this.paint = true;
-    this.img.img = new Image();
+    this.Img.img = new Image();
     const dataURL = this.canvas.toDataURL();
-    this.img.img.src = dataURL;
-    this.img.posX = e.pageX - this.canvas_cont.offsetLeft;
-    this.img.posY = e.pageY - this.canvas_cont.offsetTop;
+    this.Img.img.src = dataURL;
+    this.Img.posX = e.pageX - this.canvas_cont.offsetLeft;
+    this.Img.posY = e.pageY - this.canvas_cont.offsetTop;
   }
 
   moveCanvas(e) {
     if (this.paint === true) {
       this.clear();
-      const dx = e.pageX - this.canvas_cont.offsetLeft - this.img.posX;
-      const dy = e.pageY - this.canvas_cont.offsetTop - this.img.posY;
-      this.context.drawImage(this.img.img, dx, dy);
+      const dx = e.pageX - this.canvas_cont.offsetLeft - this.Img.posX;
+      const dy = e.pageY - this.canvas_cont.offsetTop - this.Img.posY;
+      this.context.drawImage(this.Img.img, dx, dy);
     }
   }
 
@@ -481,20 +446,17 @@ export default class AppView {
     document.querySelector('.coordinates').innerHTML = `<p class="coordinates_data">${(e.pageX - this.canvas_cont.offsetLeft) / 64}/${(e.pageX - this.canvas_cont.offsetLeft) / 64}</p>`;
   }
 
-  //saving
+  // saving
   saveCanvasAsImageFile() {
-    const imageData = this.canvas.toDataURL();
-    const image = new Image();
-    image.src = imageData;
-    saveImage(image);
+    saveCanvasAsImageFile(this.canvas);
   }
 
   PrevAnimation() {
-    const dataURL = this.canvas.toDataURL();
+    let dataURL = this.canvas.toDataURL();
     this.model.addEndFrams(dataURL);
     this.model.addEndFrams(dataURL);
     for (let i = 0; i < this.model.frames.length; i += 1) {
-      let len = this.model.frames[i].data.length;
+      const len = this.model.frames[i].data.length;
       for (let j = 0; j < len; j += 1) {
         this.context.fillStyle = this.model.frames[i].background;
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -502,7 +464,7 @@ export default class AppView {
         newImg.src = this.model.frames[i].data[j];
         this.context.drawImage(newImg, 0, 0);
       }
-      const dataURL = this.canvas.toDataURL();
+      dataURL = this.canvas.toDataURL();
       this.model.addEndFrams(dataURL);
       this.clear();
     }
@@ -510,25 +472,6 @@ export default class AppView {
 
   saveAnimation() {
     this.PrevAnimation();
-    const gif = new GIF({
-      workers: 2,
-      quality: 1,
-      width: 644,
-      height: 454,
-    });
-    for (let i = 0; i < this.model.framsAnim.length; i += 1) {
-      const newImg = new Image();
-      newImg.src = this.model.framsAnim[i];
-      gif.addFrame(newImg, {
-        delay: this.speed,
-      });
-    }
-    let resultGif;
-    gif.render();
-    gif.on('finished', (blob) => {
-      resultGif = URL.createObjectURL(blob);
-      download(resultGif);
-    });
-    this.model.clearFrams();
+    this.model.saveAnimation(this.speed);
   }
 }

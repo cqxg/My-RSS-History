@@ -1,16 +1,16 @@
+import GIF from '.././../../node_modules/gif.js-master/dist/gif';
+import download from './downloadAnimation';
+
 export default class AppModel {
   constructor() {
     this.frames = [];
     this.framesTwo = [];
     this.framsAnim = [];
-    this.canvas = document.getElementById('myCanvas');
-    this.context = this.canvas.getContext('2d');
     this.framesWrapper = document.querySelector('.frames-wrapper');
     this.frameTemplate = document.querySelector('#frame-template');
-    this.layerWrapper = document.querySelector('.lyers-wrapper');
-    this.layerTemplate = document.getElementById('layer-template');
   }
 
+  // saving animation
   addEndFrams(dataURL) {
     this.framsAnim.push(dataURL);
   }
@@ -19,6 +19,30 @@ export default class AppModel {
     this.framsAnim = [];
   }
 
+  saveAnimation(speed) {
+    const gif = new GIF({
+      workers: 2,
+      quality: 1,
+      width: 644,
+      height: 454,
+    });
+    for (let i = 0; i < this.framsAnim.length; i += 1) {
+      const newImg = new Image();
+      newImg.src = this.framsAnim[i];
+      gif.addFrame(newImg, {
+        delay: speed,
+      });
+    }
+    let resultGif;
+    gif.render();
+    gif.on('finished', (blob) => {
+      resultGif = URL.createObjectURL(blob);
+      download(resultGif);
+    });
+    this.clearFrams();
+  }
+
+  // saving frams
   frameDraw(x = 1000, image, backgroundColor, data) {
     let imageData = [];
     let dataURL = [];
@@ -29,6 +53,7 @@ export default class AppModel {
       dataURL.push(data);
     } else {
       imageData = this.framesTwo[x].img.slice();
+      // eslint-disable-next-line prefer-destructuring
       background = this.framesTwo[x].background;
       dataURL = this.frames[x].data.slice();
     }
