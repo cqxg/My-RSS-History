@@ -3,6 +3,8 @@ export default class AppModel {
     this.frames = [];
     this.framesTwo = [];
     this.framsAnim = [];
+    this.canvas = document.getElementById('myCanvas');
+    this.context = this.canvas.getContext('2d');
     this.framesWrapper = document.querySelector('.frames-wrapper');
     this.frameTemplate = document.querySelector('#frame-template');
     this.layerWrapper = document.querySelector('.lyers-wrapper');
@@ -27,7 +29,6 @@ export default class AppModel {
       dataURL.push(data);
     } else {
       imageData = this.framesTwo[x].img.slice();
-      // eslint-disable-next-line prefer-destructuring
       background = this.framesTwo[x].background;
       dataURL = this.frames[x].data.slice();
     }

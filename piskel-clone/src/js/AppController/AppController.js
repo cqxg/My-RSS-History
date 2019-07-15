@@ -239,7 +239,7 @@ export default class AppController {
       }
     });
 
-    this.view.model.layerWrapper.addEventListener('click', (e) => {
+    document.querySelector('.lyers-wrapper').addEventListener('click', (e) => {
       const num = e.target.id;
       if (num !== null) this.view.goToTheLayer(num);
     });
@@ -254,40 +254,40 @@ export default class AppController {
   setTool(event) {
     switch (event.keyCode) {
       case 49:
-          this.do = 'pen';
-          break;
+        this.do = 'pen';
+        break;
 
       case 50:
-          this.do = 'line';
-          break;
+        this.do = 'line';
+        break;
 
       case 51:
-          this.do = 'eraser';
-          break;
+        this.do = 'eraser';
+        break;
 
       case 52:
-          this.do = 'bucket-full';
-          break;
+        this.do = 'bucket-full';
+        break;
 
       case 53:
-          this.do = 'bucket';
-          break;
+        this.do = 'bucket';
+        break;
 
       case 54:
-          this.do = 'pipette';
-          break;
+        this.do = 'pipette';
+        break;
 
       case 55:
-          this.do = 'blackout';
-          break;
+        this.do = 'blackout';
+        break;
 
       case 56:
-          this.do = 'lighten';
-          break;
+        this.do = 'lighten';
+        break;
 
       case 57:
-          this.do = 'rectngle';
-          break;
+        this.do = 'rectngle';
+        break;
     }
   }
 }

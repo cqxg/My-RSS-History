@@ -481,7 +481,7 @@ export default class AppView {
     document.querySelector('.coordinates').innerHTML = `<p class="coordinates_data">${(e.pageX - this.canvas_cont.offsetLeft) / 64}/${(e.pageX - this.canvas_cont.offsetLeft) / 64}</p>`;
   }
 
-  // saving
+  //saving
   saveCanvasAsImageFile() {
     const imageData = this.canvas.toDataURL();
     const image = new Image();
@@ -527,7 +527,6 @@ export default class AppView {
     gif.render();
     gif.on('finished', (blob) => {
       resultGif = URL.createObjectURL(blob);
-      console.log(resultGif);
       download(resultGif);
     });
     this.model.clearFrams();
