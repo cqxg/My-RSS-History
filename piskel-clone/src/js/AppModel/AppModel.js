@@ -1,4 +1,4 @@
-import GIF from '.././../../node_modules/gif.js-master/dist/gif';
+import GIF from '.././../../node_modules/gif.js.optimized/dist/gif';
 import download from './downloadAnimation';
 
 export default class AppModel {
