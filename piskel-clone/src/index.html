@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Animation-editor</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Animation-editor</h1>
+    </header>
+
+    <main>
+        <section class="tools">
+            <div class="instruments">
+                <div id="range-wrapper">
+                    <span>Stroke width</span>
+                    <label><input type="range" min="10" max="70" step="20" value="10" id="width"></label>
+                </div>
+                <button title="Pen. You can select it by press '1'" class="pen">
+                    <img src="https://img.icons8.com/ios/24/000000/edit.png">
+                </button>
+                <button title="Line. You can select it by press '2'" class="line">
+                    <img src="https://img.icons8.com/metro/26/000000/line.png">
+                </button>
+                <button title="Eraser. You can select it by press '3'"  class="eraser">
+                    <img src="https://img.icons8.com/wired/24/000000/eraser.png">
+                </button>
+                <button title="Background Fill. You can select it by press '4'"  class="bucket-full">
+                    <img src="https://img.icons8.com/ios/24/000000/roller-brush-filled.png">
+                </button>
+                <button title="Bucket. You can select it by press '5'"  class="bucket">
+                    <i class="material-icons">format_color_fill</i>
+                </button>
+                <button title="Pipette. You can select it by press '6'"  class="pipette">
+                    <i class="material-icons">colorize</i>
+                </button>
+                <button title="Blackout. You can select it by press '7'"  class="blackout">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/black-and-white.png">
+                </button>
+                <button title="Lighten. You can select it by press '8'"  class="lighten">
+                    <img src="https://img.icons8.com/ios/24/000000/black-and-white.png">
+                </button>
+                <button title="Rectngle. You can select it by press '9'"  class="rectngle">
+                    <img src="https://img.icons8.com/material/24/000000/rectangle.png">
+                </button>
+                <button title="Stroke-rectngle." class="stroke-rectngle">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/rectangle-stroked.png">
+                </button>
+                <button title="Circle." class="circle">
+                    <i class="material-icons">fiber_manual_record</i>
+                </button>
+                <button title="Stroke-circle."  class="stroke-circle">
+                    <img src="https://img.icons8.com/material/24/000000/circled.png">
+                </button>
+            </div>
+
+            <div class="transform-tool">
+                <button class="turn">
+                    <i class="material-icons">replay</i>
+                </button>
+                <button class="clone">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/pull-request.png">
+                </button>
+                <button class="mirror">
+                    <img src="https://img.icons8.com/metro/26/000000/mirror.png">
+                </button>
+                <button class="move">
+                    <i class="material-icons">open_with</i>
+                </button>
+            </div>
+
+            <div class="colors">
+                <span>Color selection</span>
+                <input type="color" id="get_color" name="get_color" value='#000000'>
+            </div>
+        </section>
+
+        <section class="frames">
+            <div class="button-wrapper">
+                <button title="Add new Frame" class="add">
+                    <i class="material-icons">note_add</i>
+                    Add
+                </button>
+                <button title="Save your changes in frames" class="save">
+                    <i class="material-icons">save</i>
+                    Save
+                </button>
+            </div>
+
+            <div class="frames-wrapper"></div>
+
+            <template id="frame-template">
+                <div class="frame">
+                    <button class="button-delete">
+                        <i class="material-icons">delete</i>
+                    </button>
+                    <button class="button-copy">
+                        <i class="material-icons">file_copy</i>
+                    </button>
+                </div>
+            </template>
+        </section>
+
+        <section class="canvas">
+            <div id="myColor"></div>
+            <canvas id="myGrid" width="644" height="454"></canvas>
+            <canvas id="myCanvas" width="700" height="500"></canvas>
+        </section>
+
+        <section class="preview">
+            <div id="prevCanvas">
+            </div>
+
+            <div class="play-wrapper">
+                <button title="Play Animation" class="play">
+                    <i class="material-icons">play_circle_outline</i>
+                    Play!
+                </button>
+                <button title="Stop Animation" class="stop">
+                    <i class="material-icons">stop</i>
+                    Stop!
+                </button>
+                <button title="Fullscreen" class="full">
+                    <i class="material-icons">filter_none</i>
+                    Full
+                </button>
+                <div class="save-wrapper">
+                    <button title="Save image" class="saveImg">
+                        <i class="material-icons">save</i>
+                        Save Image
+                    </button>
+                    <button title="Save your animation" class="saveAnimation">
+                        <i class="material-icons">save</i>
+                        Save Animation
+                    </button>
+                </div>
+            </div>
+            <label><input type="range" min="1" max="24" step="1" id="speed"> FPS</label>
+
+            <section class="layers-tool">
+                <div class="layers_button-wrapper">
+                    <button title="Add new layer" class="addLayer">
+                        Add new layer
+                    </button>
+                    <button title="Delete layer" class="layer-delete">
+                        <i class="material-icons">delete</i>
+                    </button>
+                    <div class="layer-move-wrapper">
+                        <button title="layer up" class="layerUp">
+                            <img src="https://img.icons8.com/ios/16/000000/sort-up-filled.png">
+                        </button>
+                        <button title="layer down" class="layerDown">
+                            <img src="https://img.icons8.com/ios/16/000000/sort-down-filled.png">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lyers-wrapper"></div>
+
+                <template id="layer-template">
+                    <div class="layer"></div>
+                </template>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="coordinates"></div>
+    </footer>
+
+</body>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+</html>
