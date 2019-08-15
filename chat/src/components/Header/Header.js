@@ -1,8 +1,10 @@
 import React from 'react';
 
+import '../Styles/HeaderStyle.css';
+
 const Header = () => {
     return (
-        <header>
+        <header className='header'>
             <h1>myChat</h1>
         </header>
     );
